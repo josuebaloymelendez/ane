@@ -521,7 +521,6 @@ body {
     height: 100%;
     color: #012f5a;
     background-color: white;
-    border-radius: 30px;
     text-decoration: none; }
     #categories_container .qlink-item a:before {
       content: "";
