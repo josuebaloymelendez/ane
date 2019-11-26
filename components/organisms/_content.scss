@@ -1,0 +1,51 @@
+#content_main {
+	padding: 40px 0;
+
+	@include respond-to($vp-large) {
+		padding: 0;		
+	}
+}
+.content-grid {
+	position: relative;
+}
+.action-back {
+	@include hide-mid;
+
+	@include respond-to($vp-large) {
+		@include flex-all($align: center);
+		position: absolute;
+		top: calc(100% + 15px);
+		left: 0;
+		padding: 0;
+		background-color: transparent;	
+		border: 0;
+		font: {
+			family: $primary-font-light;
+			weight: 300;
+		}
+		text-transform: uppercase;
+		letter-spacing: 6.72px;
+		cursor: pointer;
+
+		@include pseudo {
+			@include bg-cover;
+			margin-right: 10px;
+			width: 25px;
+			height: 25px;
+			background-image: url(pics/icons/back.svg);
+		}
+	}
+}
+.content-format {
+	p {
+		font-size: 1.15rem;
+		line-height: 1.4;
+	}
+	h4 {
+		font: {
+			size: 1.3rem;
+			family: $primary-font-bold;
+			weight: 700;
+		}
+	}
+}

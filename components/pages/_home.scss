@@ -1,0 +1,21 @@
+.page-home {
+	background-image: url(pics/bg_body.jpg);
+	
+	@include respond-to($vp-large) {
+		#content_main {
+			margin: 0;
+			height: calc(100% - 297px);		
+		}
+	}
+}
+
+.title-mega {
+	text: {
+		align: center;
+		transform: none;
+	}
+
+	@include respond-to($vp-large) {
+		text-align: left;
+	}
+}

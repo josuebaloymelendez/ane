@@ -1,0 +1,42 @@
+.page-generalidades {
+	background: {
+		color: $cat1-color;
+		image: url(pics/bg_generalidades.jpg);
+	}
+	
+	#categories_container {
+		.qlink-item {
+			&:first-child a:before {
+				background-image: url(pics/cat1-icon.png);
+			}
+			&:last-child a:before {
+				background-image: url(pics/cat2-icon.png);
+			}
+		}
+	}
+	#motto {
+		&_row {
+			@include respond-to($vp-large) {
+				position: absolute;
+				bottom: 170px;
+				left: 0;
+				right: 0;
+			}
+		} 
+		&_container {
+			@include scale-font($small-ratio: .75, $final-size: 1.73rem);
+			@include width-constrain(750px);
+			padding-bottom: 10px;
+			text-transform: uppercase;
+			letter-spacing: 2.24px; 
+			border-bottom: 1px dashed $c-white;
+		}
+	}
+	@include respond-to($vp-max) {			
+		.title-page__icon {
+			&:after { 
+				background-image: url(pics/icon-generalidades.png);
+			}
+		}
+	}
+}

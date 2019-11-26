@@ -1,0 +1,33 @@
+.align {
+	&-horizontal {
+		&__center {
+			@include justify-content(center);
+		}
+		&__left {
+			@include justify-content(flex-start);
+		}
+		&__right {
+			@include justify-content(flex-end);
+		}
+	}
+	&-vertical {
+		&__center {
+			@include align-items(center);
+		}
+		&__left {
+			@include align-items(flex-start);
+		}
+		&__right {
+			@include align-items(flex-end);
+		}
+	}
+	&-center {
+		text-align: center;
+	}
+	&-left {
+		text-align: left;
+	}
+	&-right {
+		text-align: right;
+	}
+}

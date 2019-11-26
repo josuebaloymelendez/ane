@@ -1,0 +1,7 @@
+.items-list {
+	@include stripped-list;
+
+	&__horizontal {
+		@include flex-all($align: center, $wrap: wrap);
+	}
+}

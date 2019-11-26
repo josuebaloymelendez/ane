@@ -1,0 +1,50 @@
+// Config
+@import "components/base/base"; 
+@import "components/base/vars"; 
+@import "components/base/fonts"; 
+
+// General UI Helpers
+@import "components/utility/flexbox"; 
+@import "components/utility/functions";
+@import "components/utility/mixins";
+@import "components/utility/colors"; 
+@import "components/utility/spacing"; 
+@import "components/utility/alignment";
+@import "components/utility/display";
+@import "components/utility/lines";
+@import "components/layouts/container";
+
+@import "components/base/core";
+ 
+// Atomic Design
+@import "components/atoms/titles";
+@import "components/atoms/buttons";
+@import "components/atoms/categories";
+@import "components/atoms/chat";
+@import "components/atoms/form";
+@import "components/atoms/icons";
+@import "components/atoms/input";
+@import "components/atoms/media";
+@import "components/atoms/messages"; 
+@import "components/atoms/motto"; 
+@import "components/atoms/quicklinks"; 
+
+@import "components/molecules/menu";
+@import "components/molecules/banner";
+@import "components/molecules/navigation";
+@import "components/molecules/lists";
+
+@import "components/organisms/content";
+@import "components/organisms/header";
+@import "components/organisms/footer";
+ 
+@import "components/pages/home";
+@import "components/pages/generalidades";
+@import "components/pages/espacio";
+@import "components/pages/espectro";
+@import "components/pages/que-es-el-espectro-radioelectrico";
+@import "components/pages/mitos-y-verdades-del-espectro-radioelectrico";
+@import "components/pages/casos-de-exito";
+ 
+// Variations thru Events
+// @import "components/states/"; 

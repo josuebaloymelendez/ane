@@ -1,0 +1,1023 @@
+// ------------------------------------------------------------
+// Base
+// ------------------------------------------------------------
+// This file contains mixins that are specifically related to code structure and naming conventions.	
+// Generic or more abstract mixins should be located in _mixins.scss
+// REQUIRED mixin parameters are required for things to work or make sense
+// OPTIONAL mixin parameters can be skipped if desired and have functional defaults
+// INFERRED mixin parameters are defined in other areas of the codebase
+
+
+// Defines "sticky" sizes and behavior - header and footer areas area fixed size with the content between stretching as needed.  
+// Shorter inside pages on taller screens will stretch to the appropriate heights.  Should only be applied to HTML tag, if at all.
+
+@mixin sticky-footer-layout {
+	height: 100%;
+	
+	@at-root {
+		body {
+			@include flex-all($direction: column);
+			height: 100%;
+			margin: 0;
+		}
+		
+		.site-header,
+		.site-footer { 
+			@include flex(none); 
+			z-index: 9;
+		}
+		
+		.site-content { 
+			@include flex(1, 0, auto);
+
+			&:focus { outline: none; }
+		}
+	}
+}
+
+// Used in a link in the header to help screen readers bypass long navigation blocks.  Accessibility requirement.
+
+@mixin skip-to-content {
+	@include hidden;
+	
+	&:focus {
+		position:absolute;
+		top: 0;
+		left: 0; 
+		width:auto; 
+		height:auto;
+		clip: auto;
+	}
+}
+
+// Initializes the core marquee functionality.
+// The speed variable determines the time it takes to make 1 loop, which is modified
+//
+// $speed - derived from the class name, which is pulled from the marquee settings in the CMS.  
+//	Wider marquees will need longer durations. INFERRED.
+
+@mixin marquee-base($speed: 15) {
+	white-space: nowrap;
+	overflow: hidden;
+	box-sizing: border-box;
+	
+	.marquee-inner {
+		display: inline-block;
+		padding-left: 100%;
+		
+		&:hover { animation-play-state: paused; }
+	}
+	
+	//medium
+	&.marquee-speed-18 .marquee-inner {
+		animation: marquee #{$speed}s linear infinite;
+	}
+	
+	//slow
+	&.marquee-speed-35 .marquee-inner {
+		$marqueespeed: $speed * 2;
+		animation: marquee #{$marqueespeed}s linear infinite;
+	}
+	
+	//fast
+	&.marquee-speed-7 .marquee-inner {
+		$marqueespeed: $speed * .5;
+		animation: marquee #{$marqueespeed}s linear infinite;
+	}
+	
+	.marquee-content { float: left; }
+	
+	@keyframes marquee {
+		0% { transform: translate(0, 0); }
+		100% { transform: translate(-100%, 0); }
+	}
+}
+
+// Adobe Accessible Megamenu mixins
+// Official documentation can be found here: https://adobe-accessibility.github.io/Accessible-Mega-Menu/
+
+// -base mixin initializes basic structure of string of category links and their drop-downs.
+// Content in this mixin is used by both column and megamenu style layouts
+//
+// $convert-at-width: The px size at which to convert from hamburger menu to dropdown menu.  
+//	This is so that you can use it for supplementary navigation that does not use a hamburger menu on
+//	device sizes.  OPTIONAL
+
+@mixin accessible-menu-base($convert-at-width: null) {
+	width: 100%;
+
+	.nav-mobile-toggle {
+		position: absolute;
+		display: block;
+		overflow: hidden;
+		font-size: 0;
+		border: none;
+		background-color: transparent;
+		cursor: pointer;
+
+		.nav-mobile-toggle-inner {
+			position: absolute;
+			display: block;
+			transition: .25s;
+		}
+
+		@include pseudo-both{
+			position: absolute;
+			transition: .25s;
+		}
+
+		&.animated.open {
+			.nav-mobile-toggle-inner { transform: scaleX(0); }
+			&:before{ transform: rotate(45deg); }
+			&:after{ transform: rotate(-45deg); }
+		}
+	}
+
+	.nav-menu {
+		position: absolute;
+		z-index: 99;
+		width: 100%;
+		overflow: hidden;
+		max-height: 0;
+		transition: max-height 0.8s;
+		
+		//.open & { max-height: 2000px; }
+	}
+
+	&.open .nav-menu { max-height: 2000px; }
+
+	.nav-menu,
+	.sub-nav-group {
+		@include stripped-list;
+		
+		a { 
+			@include flex-all($align: center);
+			padding: .5em;
+			text-decoration: none; 
+		}
+	}
+	
+	.nav-menu {
+		//@include width-constrain;
+	}
+
+	.sub-nav {
+		display: none;
+
+		a { padding-left: 1.5em; }
+		
+		&.open { display: block; }
+
+		.flyout-group {
+			@include stripped-list;
+
+			a { padding-left: 2.5em; }
+		}
+	}
+
+	@if $convert-at-width {
+		@include respond-to($convert-at-width) {
+			position: static;
+			max-height: none;
+			overflow: visible;
+			
+			.nav-mobile-toggle { display: none; }
+			
+			.nav-menu {
+				@include flexbox;
+				@include width-constrain;
+				position: relative;
+			}
+
+			.sub-nav a, { padding: .5em; }
+		}
+	}
+}
+
+// Mixin for traditional column-based drop-down menus using the Adobe system
+// Builds up on the generic "-base" mixin.  This one is for LAYOUT ONLY and is design agnostic.
+//
+// $cols-num - number of side-by-side columns to display.  This is defined in /shared/components/_component_variables.scss 
+//	and is in turn pulled from a variable defined in the header snippet in canvas.  INFERRED
+// $convert-at-width: The px size at which to convert from hamburger menu to dropdown menu.  
+//	This is so that you can use it for supplementary navigation that does not use a hamburger menu on
+//	device sizes.  OPTIONAL
+
+@mixin accessible-menu-column-layout($cols-num: 1, $convert-at-width: $vp-large) {
+	@include accessible-menu-base($convert-at-width);
+
+	.nav-item { position: relative; }
+
+	@include respond-to($convert-at-width) {
+		position: relative;
+
+		.nav-menu { position: relative; }
+
+		.sub-nav-group {
+			@include flex-all($wrap: wrap);
+			width: $cols-num * 12.5em;
+		}
+		
+		.sub-nav {
+			position: absolute;
+			
+			a { width: 11.5em; }
+
+			.flyout-group a { 
+				width: 10.5em; 
+				padding-left: 1.5em; 
+			}
+		}
+	}
+}
+
+// Megamenu mixin for wider menus that use extra content (image/text) defined from the CMS using the Adobe system
+// Builds up on the generic "base" mixin.  This one is for LAYOUT ONLY and is design agnostic.
+//
+// $cols-num - number of side-by-side columns to display.  This is defined in /shared/components/_component_variables.scss 
+//	and is in turn pulled from a variable defined in the header snippet in canvas.  INFERRED
+// $convert-at-width: The px size at which to convert from hamburger menu to dropdown menu.  
+//	This is so that you can use it for supplementary navigation that does not use a hamburger menu on
+//	device sizes.  OPTIONAL
+
+@mixin accessible-megamenu-layout($cols-num: 2, $convert-at-width: $vp-large) {
+	@include accessible-menu-base($convert-at-width);	
+	
+	@include respond-to($convert-at-width) {
+
+		.sub-nav {
+			position: absolute;
+			left: 0;
+
+			&.open {
+				@include flex-all($align: flex-start);
+			}
+
+			.sub-nav-group {
+				@include flex-all($wrap: wrap);
+				@include flex(none);
+
+				> li {
+					width: 100%/$cols-num;
+
+					a { margin: 0 1em; }
+				}
+			}
+
+			.mm-extra-content {
+				@include flex(1);
+			}
+
+			.mm-image { width: 100%; }
+		}
+	}
+
+	@include respond-to($site-width) {
+		.sub-nav { right: 0; }
+	}
+
+	@include respond-to-max($convert-at-width) {
+		.mm-extra-content { display: none; }
+	}
+}
+
+// This mixin details all of the stylistic changes for a single, multi-column, or full megamenu setup
+// It does NOT define any structural layout, only sizes, colors, paddings, etc. - things that could be unique to individual designs
+// This is normally called from /shared/_overrides.scss
+// NOTE: most often the text styling, hover states, etc. for the desktop size are different from that of the device size and will
+// have to be overridden in _overrides at the appropriate size.
+//
+// $hamburger-color - defines color of the device-size hamburger menu toggle. OPTIONAL
+// $hamburger-icon-size - defines both the width and the height of the hamburger menu icon toggle (padding inclusive) OPTIONAL
+// $hamburger-icon-padding - the inset padding between the clickable edge of the hamburger menu icon and the actual lines. OPTIONAL
+// $hamburger-icon-width - the width of the colored areas of the hamburger menu icon. OPTIONAL
+//
+// $dropdown-bg-color - defines the default background color of the hamburger menu and desktop dropdowns. OPTIONAL
+// $dropdown-link-color - defines the default state for hamburger menu and dropdown link colors. OPTIONAL
+// $dropdown-hover-bg-color - defines the hover background color of hamburger menu and dropdown items. OPTIONAL
+// $dropdown-hover-link-color - defines the hover state colorfor hamburger menu and dropdown link colors. OPTIONAL
+//
+// $spacing - defines the flex keyword used to space the dropdown categories on desktop menus. OPTIONAL
+// $indent-last - on column-based layouts the furthest-right option could potentially push off the right edge of the screen.  This
+//	should prevent this be changing the alignment from left-oriented to right-oriented. OPTIONAL
+// $sub-nav-padding - on megamenu layouts this defines how much space is between the content and the edges of the megamenu block. OPTIONAL
+// $sub-nav-width - on megamenu layouts this defines the % of the megamenu block is defined by the columns of links.  It is split
+//	evenly between those rows. The remainder of the 100% is used by the extra image and text content. OPTIONAL
+
+@mixin sitenav-styling(
+		$hamburger-color: $primary-color, 
+		$hamburger-icon-size: 44px, 
+		$hamburger-icon-padding: 8px, 
+		$hamburger-icon-width: 5px, 
+		$dropdown-bg-color: $primary-color, 
+		$dropdown-link-color: $color-over-primary, 
+		$dropdown-hover-link-color: $color-over-secondary, 
+		$dropdown-hover-bg-color: $secondary-color, 
+		$spacing: "space-around", 
+		$indent-last: $nav-cols, 
+		$sub-nav-padding: 20px, 
+		$sub-nav-width: 65%, 
+		$convert-at-width: $vp-large
+	) {
+	color: $dropdown-link-color;
+
+	.nav-mobile-toggle { 
+		height: $hamburger-icon-size;
+		width: $hamburger-icon-size;
+
+		.nav-mobile-toggle-inner,
+		&:before,
+		&:after { 
+			left: $hamburger-icon-padding;
+			width: calc(100% - #{$hamburger-icon-padding*2});
+			height: $hamburger-icon-width;
+			background-color: $hamburger-color;
+		}
+
+		.nav-mobile-toggle-inner { top: calc(50% - #{$hamburger-icon-width/2} ); }
+		&:before { top: $hamburger-icon-padding; }
+		&:after { bottom: $hamburger-icon-padding; }
+
+		&.animated.open {
+			&:before{ top: calc(50% - #{$hamburger-icon-width/2}); }
+			&:after{ bottom: calc(50% - #{$hamburger-icon-width/2}); }
+		}
+	}
+
+	.nav-item > a {
+		height: 42px;
+		padding: 0 10px;
+		font: {
+			size: 1.125em;
+			weight: 700;
+		}
+		background: $dropdown-bg-color;	
+		color: $dropdown-link-color;
+
+		&:focus,
+		&:hover,
+		&.open { 
+			color: $dropdown-hover-link-color;
+			background-color: $dropdown-hover-bg-color; 
+		}
+	}
+
+	.sub-nav {
+		
+		a {
+			color: $dropdown-link-color;
+			background: $dropdown-bg-color;	
+			
+			&:focus,
+			&:hover,
+			&.open { 
+				color: $dropdown-hover-link-color;
+				background-color: $dropdown-hover-bg-color; 
+			}
+		}
+	}
+	
+	@include respond-to($convert-at-width) {
+
+		&.column,
+		&.megamenu {
+
+			.nav-menu {
+				@include justify-content(#{$spacing});
+				top: auto;
+				max-height: none;
+				overflow: visible;
+			}
+
+			.nav-item > a { text-align: center; }
+
+			.sub-nav { background-color: $dropdown-bg-color; }
+		}
+
+		// Specific to column-based layouts
+		&.column {
+			@if $indent-last {
+				@for $i from 1 through $indent-last {
+					.nav-item:nth-last-child(#{$i}) {
+
+						.sub-nav {
+						
+							&:focus,
+							&.open {
+								left: auto;
+								right: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// Specific to megamenu layouts
+		&.megamenu {
+			.sub-nav {
+				box-sizing: border-box;
+				width: 100%;
+				max-width: $site-width;
+				padding: $sub-nav-padding;
+
+				.sub-nav-group { width: $sub-nav-width; }
+
+				.mm-extra-content { width: calc(100% - #{$sub-nav-width}); }
+			}
+		}
+	}
+}
+
+// Standardized padding, spacing, etc. for the #content_main block, which wraps all inside page CMS content
+// as well as most of the individualized content on the index page.
+//
+// $width - how wide the inside page content should be. OPTIONAL
+// $horizontal-padding - horizontal padding applied to inside pages. OPTIONAL
+// $vertical-padding - vertical padding applied to inside pages. OPTIONAL
+
+@mixin content-main($width: $site-width, $horizontal-padding: 50px, $vertical-padding: 25px) {
+	@include responsive-fix;
+	position: relative;
+	z-index: 9;
+	padding: {
+		top: $vertical-padding;
+		bottom: $vertical-padding;
+		left: 5%;
+		right: 5%;
+	}
+	min-height: 400px;
+	overflow: visible;
+	
+	.index & {
+		width: 100%;
+		max-width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+	
+	.pages-content-wrapper { overflow: visible; }
+	
+	// remove default border from images uploaded on legacy pages, news items, and any older modules
+	img.sub { border: none; }
+
+	@include respond-to($width) {
+		@include width-constrain($width, $horizontal-padding);
+	}
+}
+
+// On inside pages any section with multiple pages creates a navigation block on the left or right side
+// of the page content.  This controls the layout and strictly-standardized styling for this block.
+
+@mixin pagenav-layout {
+	margin-bottom: 1.25em;
+	
+	@include respond-to-max($vp-mid) { margin: 20px auto; }
+
+	ul { 
+		@include stripped-list;
+		margin: 0;
+		padding: 0;
+	}
+	
+	a {
+		@include hover-underline;
+		color: inherit;
+		display: block;
+		font-weight: 400;
+		padding: .8em 6% .8em 10%;
+		width: 84%;
+		margin: 0;
+		line-height: auto;
+		
+		.inner { @include hover-underline; }
+	}
+}
+
+// On inside pages any section with multiple pages creates a navigation block on the left or right side
+// of the page content.  This controls the coloration for this block. This should be called from /shared/_overrides.scss
+//
+// $background-color - the background color of the navigation block. OPTIONAL
+// $link-color - the default state color for links on the navigation block. OPTIONAL
+// $active-background - the background color for the active (current) page in the navigation block. OPTIONAL
+// $active-color - the link color for the active (current) page in the navigation block. OPTIONAL
+
+@mixin pagenav-style($background-color: $primary-color, $link-color: $color-over-primary, $active-background: $secondary-color, $active-color: $color-over-secondary) {
+	background: $background-color;
+
+	li {
+		a { color: $link-color; }
+
+		&.active {
+			a {
+				background-color: $active-background;
+				color: $active-color;
+			}
+		}
+	}
+}
+
+/// Controls the layout and some standardized styling of search field components.
+
+@mixin search-layout {
+	@include inline-flex;
+	
+	#site_search {
+		margin: 0;
+		border: none;
+		vertical-align: top;
+		background: transparent;
+		-webkit-appearance: none;
+		box-sizing: content-box;
+	}
+
+	.site-search-button {
+		display: block;
+		padding: 0;
+		margin: 0;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+	}
+}
+
+// Controls the styling of search field components.
+// 
+// $height - the height of the search field. OPTIONAL
+// $width - the width of the search field. OPTIONAL
+// $padding - the padding around the inner portion of the search field.  Can take any shortcut values.  OPTIONAL
+// $color - the color of the placeholder and input text (usually defaults to grey, which can have poor contrast). OPTIONAL
+// $bg-color - the background color of the search bar. OPTIONAL
+// $roundness - option to curve the edges of the search field. use 100% to create an oval or px values.  OPTIONAL 
+
+@mixin search-style(
+		$height: 18px,
+		$width: 100px,
+		$padding: 0 10px,
+		$color: inherit,
+		$bg-color: null,
+		$roundness: null,
+		$icon-color: $jack-black
+	) {
+	height: $height;
+	background-color: $bg-color;
+
+	@if $roundness {
+		border-radius: $roundness;
+		overflow: hidden;
+	}
+
+	#site_search {
+		height: $height;
+		width: $width;
+		padding: $padding;
+		line-height: $height;
+		color: $color;
+
+		&::-webkit-input-placeholder { color: $color; }
+		&::-webkit-search-decoration { -webkit-appearance: none; }
+	}
+
+	.site-search-button {
+		svg {
+			width: $height - 6px;
+			height: $height - 6px;
+			padding: 3px;
+			fill: $icon-color;
+		}
+	}
+}
+
+// All sites display a semi-standardized navigation menu on small mobile sizes.  
+// This mixin controls the layout and standardized design choices.
+//
+// $nav-height - the height of the navigation bar, as well as the amount needed to offset the footer
+//	on device sizes to make room for it. OPTIONAL
+
+@mixin mobile-nav-layout($nav-height: 64px) {
+	@include flex-all($justify: space-around);
+	position: fixed;
+	z-index: 999;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: $nav-height;
+	
+	a {
+		@include flex-all($direction: column, $justify: center, $align: center);
+		font-size: .75em;
+		text-decoration: none;
+		
+		svg {
+			width: 28px;
+			height: 28px;
+			margin-bottom: 5px;	
+		}
+	}
+	
+	@include respond-to($vp-mid) { display: none; }
+	
+	@include respond-to-max($vp-mid) {
+		@at-root {
+			#footer_main { padding-bottom: $nav-height; }
+		}
+	}
+}
+
+// All sites display a semi-standardized navigation menu on small mobile sizes.  
+// This mixin controls the coloration unique to each design. Called from /shared/_overrides.scss
+//
+// $background-color - background color for the entire navigation block. REQUIRED
+// $fill-color - color for the default state text and SVG icons. REQUIRED
+// $hover-color - color for the hover state text and SVG icons. REQUIRED
+
+@mixin mobile-nav-styles($background-color: $primary-color, $fill-color: $color-over-primary, $hover-color: $secondary-color) {
+	background: $background-color;
+
+	a {
+		color: $fill-color;
+		svg { fill: $fill-color; }
+
+		@include hover {
+			color: $hover-color;
+			
+			svg { fill: $hover-color; }
+		}
+	}
+}
+
+// Basic Slick slider implementation and fundamental layout information.  Normally this is used in conjunction
+// with the .slick-layout class.  This mixin MUST be called somehow for Slick sliders to work AT ALL.
+
+@mixin slick-layout {
+	position: relative;
+	display: block;
+	box-sizing: border-box;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-ms-touch-action: pan-y;
+	touch-action: pan-y;
+	-webkit-tap-highlight-color: transparent;
+
+	.slick-slider { position: relative; }
+
+	.slick-list {
+		position: relative;
+		overflow: hidden;
+		display: block;
+		padding: 0;
+
+		&:focus { outline: none; }
+
+		&.dragging {
+			cursor: pointer;
+			cursor: hand;
+		}
+	}
+	.slick-slider .slick-track,
+	.slick-slider .slick-list {
+		-webkit-transform: translate3d(0, 0, 0);
+		-moz-transform: translate3d(0, 0, 0);
+		-ms-transform: translate3d(0, 0, 0);
+		-o-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+
+	.slick-track {
+		@include clearfix;
+		position: relative;
+		left: 0;
+		top: 0;
+		display: block;
+		margin: 0 auto;
+
+		.slick-loading & { visibility: hidden; }
+	}
+
+	.slick-slide {
+		position: relative;
+		float: left;
+		height: 100%;
+		min-height: 1px;
+
+		[dir="rtl"] & { float: right; }
+		
+		img { display: block; }
+
+		&.slick-loading img { display: none; }
+
+		&.dragging img { pointer-events: none; }
+
+		.slick-initialized & { display: block; }
+
+		.slick-loading & { visibility: hidden; }
+
+		.slick-vertical & {
+			display: block;
+			height: auto;
+			border: 1px solid transparent;
+		}
+	}
+
+	.slick-arrow {
+		@include image-replace;
+		position: absolute;
+		z-index: 9999;
+		border: none;
+		background-color: transparent;
+
+		&:hover { cursor: pointer; }
+
+		&.slick-prev { left: 0; }
+
+		&.slick-next { right: 0; }
+
+		&.slick-hidden { display: none; }
+	}
+
+	.slick-hidden { @include hidden; }
+
+	.slick-dots {
+		@include stripped-list;
+		@include flex-all($align: center, $justify: center, $wrap: wrap);
+		z-index: 9999;
+		text-align: center;
+
+		li {
+			position: relative;
+			display: inline-block;
+			height: 20px;
+			width: 20px;
+			cursor: pointer;
+
+			button {
+				display: block;
+				height: 20px;
+				width: 20px;
+				padding: 5px;
+				outline-width: none;
+				font-size: 0px;
+				line-height: 0px;
+				color: transparent;
+				border: 0;
+				cursor: pointer;
+				background: none transparent;
+
+				@include hover {
+					outline-width: 5px;
+				}
+
+				&:before {
+					content: "\2022";
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 20px;
+					height: 20px;
+					line-height: 20px;
+					font-size: 2rem;
+					text-align: center;
+				}
+			}
+		}
+
+		&.number-dots li button {
+			font-size: .75em;
+			&:before { display: none; }
+		}
+	}
+
+	@include respond-to($vp-mid) {
+		.slick-dots li { margin: .5em; }
+	}
+}
+
+// Styling of image-based slick arrows.  Can be re-called outside of the main mixin to adjust images after the fact, if desired
+
+// $button-prev-image - the URL of the Previous Slide button.  REQUIRED
+// $button-next-image - the URL of the Next Slide button. REQUIRED
+
+@mixin slick-arrows-images($button-prev-image, $button-next-image) {
+
+	.slick-arrow {
+		background: {
+			position: center center;
+			repeat: no-repeat;
+			size: auto;
+		}
+		
+		&.slick-prev { background-image: url(#{$button-prev-image}); }
+		&.slick-next { background-image: url(#{$button-next-image}); }
+
+		&:before { display: none; }
+	}
+}
+
+// Tiny shortcut to adjust the color only for a CSS-based slick arrow.  Can be called from outside of the main mixin as needed
+
+// $color - the color of the arrow.  REQUIRED
+
+@mixin slick-arrow-color($color) {
+	.slick-arrow:before { border-color: $color; }
+}
+
+// Styling of css-based slick arrows.  Can be re-called outside of the main mixin to adjust arrow sizes and coloration after the fact, if desired
+
+// $arrow-width - the line width, in px, of the arrow.  REQUIRED
+// $arrow-length - the line length, in px, of the arrow. REQUIRED
+// $arrow-color - the color of the arrow. REQUIRED
+
+@mixin slick-arrows-css($arrow-width, $arrow-length, $arrow-color) {
+
+	@include slick-arrow-color($arrow-color);
+
+	.slick-arrow {
+		
+		@include pseudo {
+			position: absolute;
+			top: 50%;
+			width: $arrow-length;
+			height: $arrow-length;
+			border-top: {
+				style: solid;
+				width: $arrow-width;
+			}
+		}
+
+		&.slick-prev:before {
+			transform: rotate(-45deg) translateZ(1px) translateX(#{($arrow-length + (2 * $arrow-width))/-4}) translateY(#{($arrow-length + (2 * $arrow-width))/-4}); // translateZ is FF hack for cleaner edges
+			transform-origin: top left;
+			border-left: {
+				style: solid;
+				width: $arrow-width;
+			}
+			left: 50%;
+		}
+
+		&.slick-next:before {
+			transform: rotate(45deg) translateZ(1px) translateX(#{($arrow-length + (2 * $arrow-width))/4}) translateY(#{($arrow-length + (2 * $arrow-width))/-4}); // translateZ is FF hack for cleaner edges
+			transform-origin: top right;
+			border-right: {
+				style: solid;
+				width: $arrow-width;
+			}
+			right: 50%;
+		}
+	}
+}
+
+// Basic Slick slider design control - margins, arrows, dot colors, etc.  Any Slick sliders MUST ALSO
+// call the slick-layout mixin to function.
+//
+// Currently all default values are initialized by the slick-base mixin.  slick-styles can then be called
+// as necessary to adjust individual slick instances with minimal code repetition.
+//
+// SIZING AND GENERAL VARIABLES
+//
+// $side-margin - margin between the side edges of the parent container and the actively-sliding area
+//	(usually the arrows will go here, plus some extra space). OPTIONAL
+// $button-size - if arrow navigation is enabled, this defines the width of the prev/next arrow buttons. 
+//	Positions are automatically deteremined from this value. 
+//  This variable must be a MAP containing button-height and button-width keys! 
+//  e.g. $button-size: (button-height: 30px, button-width: 45px) 
+//  OPTIONAL for css-type arrows but REQUIRED for image-type arrows 
+// $dot-color - the default color for items in dot navigation. OPTIONAL
+// $active-dot-color - the color for the current/active item in dot navigation. OPTIONAL
+//
+// ARROW STYLING VARIABLES
+//
+// $arrow-style - determines what style of arrows you are going to use.  MUST be 'css' or 'images' or null
+//
+//  'images' STYLE VARIABLES
+//
+// $button-prev-image - the URL of the Previous Slide button. REQUIRED IF $arrow-style = 'images'
+// $button-next-image - the URL of the Next Slide button. REQUIRED IF $arrow-style = 'images'
+//
+//  'css' STYLE VARIABLES
+//
+// $arrow-width - the line width, in px, of the arrow. REQUIRED IF $arrow-style = 'css'
+// $arrow-length - the line length, in px, of the arrow. REQUIRED IF $arrow-style = 'css'
+// $arrow-color - the color of the arrow. REQUIRED IF $arrow-style = 'css'
+
+@mixin slick-styles(
+		$side-margin: null, 
+		$button-size: null, 
+		$dot-color: null, 
+		$active-dot-color: null, 
+		$arrow-style: null, 
+		$button-prev-image: "/pics/button_prev.png", 
+		$button-next-image: "/pics/button_next.png", 
+		$arrow-width: null, 
+		$arrow-length: null, 
+		$arrow-color: null
+	) {
+	
+	@if $arrow-style == "images" {
+
+		@if $button-prev-image and $button-next-image {
+			@include slick-arrows-images($button-prev-image, $button-next-image);
+		}
+	}
+
+	@if $arrow-style == "css" {
+		@include slick-arrows-css($arrow-width, $arrow-length, $arrow-color);
+
+		@if ($button-size == null) {
+			$button-side: ($arrow-length + (2 * $arrow-width)) * sqrt(2);
+			$button-size: (button-width: $button-side/2, button-height: $button-side - $arrow-width);
+		}
+	}
+
+	@if ($side-margin) {
+		.slick-list { 
+			width: calc(100% - #{$side-margin}*2);
+			margin: 0 $side-margin; 
+		}
+	}
+
+	@if ($button-size) {
+		$button-width: map-get($button-size, button-width);
+		$button-height: map-get($button-size, button-height);
+
+		.slick-arrow {
+			width: $button-width;
+			height: $button-height;
+			top: calc(50% - #{$button-height}/2);
+		}
+	}
+
+	@if ($dot-color) {
+		.slick-dots {
+			li button:before { color: $dot-color; }
+
+			&.number-dots {
+				li {
+					button { background: $dot-color; }
+
+					&.slick-active button { color: $dot-color; }
+				}
+			}
+		}
+	}
+
+	@if ($active-dot-color) {
+		.slick-dots {
+			li.slick-active button:before { color: $active-dot-color; }
+
+			&.number-dots {
+				li {
+					button { color: $active-dot-color; }
+
+					&.slick-active button { background: $active-dot-color; }
+				}
+			}
+		}
+	}
+}
+
+// This wrapper mixin calls the layout mixin as well as the functional default styling for a slick slider.
+// slick-styles can be called later on to override any particular variables you'd like.
+
+@mixin slick-base(
+		$arrow-style: css, 
+		$side-margin: 25px, 
+		$dot-color: $secondary-color, 
+		$active-dot-color: $primary-color, 
+		$arrow-width: 2px, 
+		$arrow-length: 12px, 
+		$arrow-color: $jack-black, 
+		$button-size: (button-width: 20px, button-height: 30px)
+	) {
+
+	@include slick-styles($arrow-style: $arrow-style, $side-margin: $side-margin, $dot-color: $dot-color, $active-dot-color: $active-dot-color, $arrow-width: $arrow-width, $arrow-length: $arrow-length, $arrow-color: $arrow-color, $button-size: $button-size);
+	@include slick-layout;
+}
+
+// This will create a visually clipped area in which you can place parallax content etc. on multiple places on the page.
+// Note that if an asset is spread across multiple rows (such as a background image) this won't work so well, as you'd
+// need to duplicate the shuffle code in each row.  Not great.
+//
+// Also note that you will need to create an element as the first child of the element you'd like to frame - this is NOT
+// currently automated via canvas.
+//
+// $container - the identifier of the framing element. OPTIONAL
+
+@mixin clip-container($container: ".visibility-frame") {
+	position: relative;
+
+	#{$container} {
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		clip: rect(0, auto, auto, 0);
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+	}
+}

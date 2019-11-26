@@ -1,0 +1,32 @@
+#search {
+	@include width-constrain(570px);
+	position: relative;
+	
+	@include search-style(
+		$height: 70px,
+		$width: 100%,
+		$padding: 0 10px,
+		$color: inherit, 
+		$bg-color: $c-white,
+		$roundness: 50px,
+		$icon-color: $c-black
+	);
+
+	#site_search {
+		color: $primary-color;
+		font: {
+			size: 1.2rem;
+			style: italic;
+		}
+		text-align: center;
+	}
+
+	svg {
+		position: absolute;
+		top: 50%;
+		right: 30px;
+		width: 28px;
+		height: 28px;
+		transform: translateY(-50%);
+	}
+}

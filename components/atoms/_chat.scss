@@ -1,0 +1,21 @@
+.chat-container {
+	padding: 18px 0;
+
+	a {
+		text-decoration: none;
+
+		@include mask {
+			top: 50%;
+			right: 100%;
+			width: 31px;
+			height: 23px;
+			background-image: url(pics/icons/chat.svg);
+			transform: translateY(-50%);
+		}
+	}
+	@include respond-to($vp-large) {
+		position: absolute;
+		bottom: 100%;
+		right: 90px;
+	}
+}

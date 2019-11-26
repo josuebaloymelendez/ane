@@ -1,0 +1,28 @@
+#header_main {
+	background-color: $primary-color;
+
+	.header-title {
+		position: relative;
+		z-index: 9;
+		padding: 20px 0;
+
+		a {
+			@include image-replace($header-logo-height, $header-logo-width, $header-logo-image);
+			margin: 0 auto;
+		}
+	}
+	@include respond-to($vp-large) {
+		width: 100%;
+		height: 107px;
+		background-color: transparent;
+
+		.header-title {
+			margin: 0;
+			padding: 0;
+
+			a {
+				margin: 0;
+			}
+		}
+	}
+}

@@ -1,0 +1,19 @@
+.display {
+	&-row {
+		@include flex-all($direction: row);
+
+		&-reverse {
+			@include flex-all($direction: row-reverse);
+		}
+	}
+	&-column {
+		@include flex-all($direction: column);
+
+		&-reverse {
+			@include flex-all($direction: column-reverse);
+		}
+	}
+	&-wrap {
+		@include flex-wrap(wrap);
+	}
+}

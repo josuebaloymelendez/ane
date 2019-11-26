@@ -1,0 +1,97 @@
+// ------------------------------------------------------------
+// Settings
+
+// :: Breakpoints
+// :: Sizing
+// :: Colors
+// :: Typography
+// ------------------------------------------------------------
+
+
+// ------------------------------------------------------------
+// :: Breakpoints
+// ------------------------------------------------------------
+
+// Defining viewport sizes.	 This could get more complex as we grow, but for now we are using three.
+
+$vp-small				: 320px;	// small size 
+$vp-mid					: 768px;	// mid size
+$vp-large				: 1024px;	// large size
+
+$vp-max					: 1350px;	// max viewport. Syntactically makes for a nicer option
+
+
+// ------------------------------------------------------------
+// :: Sizing
+// ------------------------------------------------------------
+
+// Feel free to define custom sizing here, but the less complex the better, generally
+
+$site-width				: 1145px;
+
+// Initial declaration of logo sizes.  These should be over-written automatically later should they 
+// be used, but must have a default value to compile correctly.
+$nav-cols:2;
+$header-logo-height		: 150px;
+$header-logo-width		: 25px;
+$footer-logo-height		: 150px;
+$footer-logo-width		: 25px;
+
+// ------------------------------------------------------------
+// :: Colors
+// ------------------------------------------------------------
+
+// Define the main colour palette.
+// Feel free to change any of the values in this first group of colors per the needs of the design.
+// In a shared design these can be redefined safely per individual campus
+$c-black				: rgb(0,0,0);
+$c-almost-black			: rgb(15,15,15);
+$c-white				: rgb(255,255,255);
+$c-almost-white			: rgb(245,245,245);
+$c-grey					: rgb(42,42,42);
+
+// Blue
+$primary-color			: rgb(1,47,90);
+$color-over-primary		: $c-white;
+
+// Black
+$secondary-color		: $c-black;
+$color-over-secondary	: $c-white;
+
+// Purple
+$tertiary-color			: rgb(101,63,128);
+$color-over-tertiary	: $c-white;
+
+// Red
+$fourth-color			: rgb(141,2,2);
+$color-over-fourth		: $c-white;
+
+// Green
+$fifth-color			: rgb(2,141,39);
+$color-over-fifth		: $c-white;
+
+// Generalidades
+$cat1-color				: rgb(63,167,214);
+$color-over-cat1		: $c-white;
+
+// Espacio
+$cat2-color				: rgb(13,98,136);
+$color-over-cat2		: $c-white;
+
+// Espectro
+$cat3-color				: rgb(101, 63, 128);
+$color-over-cat3		: $c-white;
+
+
+// Branding colors for third parties.
+$facebook				: rgb(24,119,242);
+$twitter				: rgb(29,161,242);
+$youtube				: rgb(255,0,0);
+$instagram				: rgb(215,53,118);
+
+// ------------------------------------------------------------
+// :: Images and Logos
+// ------------------------------------------------------------
+
+$header-logo-image			: "pics/Logo-Portal-Espectro.png";
+$footer-logo-image			: $header-logo-image;

@@ -1,0 +1,84 @@
+// Initializing baseline fonts/sizes
+// ------------------------------------------------------------
+
+body, body .dark, body .light, body table, body .neutral, body .pale {
+	font-family: $primary-font;
+	font-size: 100%;
+}
+
+// High level structure
+// ------------------------------------------------------------
+
+html {
+	@include sticky-footer-layout;
+    width: 100%;
+    display: table;
+}
+body {	
+    display: table-cell;
+    width: 100%;
+	min-width: $vp-small;
+	height: 100%;
+	min-height: 100%;
+	background-color: $c-white;
+	color: $c-black; 
+
+	&.page {
+		@include bg-cover;
+		background-attachment: fixed;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.sitenav {
+	$nav-cols: 1 !default;
+
+	&.hamburger {
+		@include accessible-menu-base;
+	}
+}
+
+#search {
+	@include search-layout;
+}
+
+.width-constrain-row {
+	.content-row-inner {
+		@include respond-to($vp-large) {
+			@include width-constrain($site-width);
+		}
+	}
+}
+
+.close {
+	@include flex-all($align: center);
+	position: absolute;
+	z-index: 9999999;
+	top: 10px;
+	right: 20px;
+	font-size: .85rem;
+	text-transform: uppercase;
+	letter-spacing: 10.3px;
+	cursor: pointer;
+
+	@include pseudo("after") {
+		margin-left: 5px;
+		width: 28px;
+		height: 28px;
+		background: url(pics/icons/close.svg);
+		transform-origin: 50% 50%;
+		transition: transform .5s ease-in-out;
+	}
+	@include hover {
+		&:after {
+			transform: rotate(90deg);
+		}
+	}
+}
+
+.hidden {
+	@include hidden;
+}

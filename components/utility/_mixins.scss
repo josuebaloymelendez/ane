@@ -1,0 +1,584 @@
+// ------------------------------------------------------------
+// Mixins
+// ------------------------------------------------------------
+// These are all general utility mixins that do not require a specific class or ID, or much of any
+// particular code order at all. (Obviously ones like sequential-bg still need a sequence of child elements)
+
+// -------------------------------------------------------
+// List styles
+// -------------------------------------------------------
+
+// Removes the default browser styling from a list.  
+// Useful to use in conjunction with flex declarations.
+
+@mixin stripped-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+// -------------------------------------------------------
+// Hovers
+// -------------------------------------------------------
+// NOTE: these (mostly) all support the @content directive, so you can
+// feed multiple extra lines of styling through the mixin and have them
+// applied.
+
+// Applies styling to both the :hover and :focus states of an element.
+// This is the preferred method, as it fores for keyboard users as well as mouse users.
+//
+// $descriptor - passes additional classes, IDs, or other identifiers for the element to
+//  apply hover-state effects to.  OPTIONAL
+
+@mixin hover($descriptor: null) {
+
+	@if $descriptor != null {
+		&:hover, 
+		&:focus,
+		&#{$descriptor} {
+			@content;
+		} 
+	} @else {
+		&:hover, 
+		&:focus {
+			@content;
+		}
+	}
+}
+
+// Changes the hover color of an element (and applies anything passed through @content)
+//
+// $color - the text color of the hovered element. REQUIRED
+// $descriptor - passes additional classes, IDs, or other identifiers for the element to
+//  apply hover-state effects to.  OPTIONAL
+
+@mixin hover-color($color, $descriptor: null) {
+	@include hover($descriptor) {
+		color: $color;
+		@content;
+	}
+}
+
+// Changes the background-color (and optionally text color) of an element (and applies anything 
+// passed through @content)
+//
+// $bg-color - the background color of the hovered element. REQUIRED
+// $text-color - the text color of the hovered element. OPTIONAL
+// $descriptor - passes additional classes, IDs, or other identifiers for the element to
+//  apply hover-state effects to.  OPTIONAL
+
+@mixin hover-bg-color($bg-color, $text-color: null, $descriptor: null) {
+	@include hover($descriptor){
+		background-color: $bg-color;
+		color: $text-color;
+		@content;
+	}
+}
+
+// Adds an underline effect on hover (useful for links etc.)
+//
+// $descriptor - passes additional classes, IDs, or other identifiers for the element to
+//  apply hover-state effects to.  OPTIONAL
+
+@mixin hover-underline($descriptor: null) {
+	text-decoration: none;
+	
+	@include hover($descriptor) {
+		text-decoration: underline; 
+	}
+}
+	
+// -------------------------------------------------------
+// SVG icons
+// -------------------------------------------------------
+// Turns an object into a specifically sized and colored SVG-based icon.  Useful for social media buttons, etc.
+
+// SIZE-based half of the svg-icon pair of mixins.
+//
+// $width - the width of the ENTIRE desired icon area (i.e. including padding on the sides).  REQUIRED
+// $height - the height of the ENTIRE desired icon area (i.e. including padding on the top/bottom).  REQUIRED
+// $padding - the distance between the outside edge of the icon area and the icon SVG itself.  OPTIONAL
+
+@mixin svg-icon-size($width: auto, $height: auto, $padding: 0) {
+	display: block;
+	width: $width;
+	height: $height;
+	overflow: hidden;
+
+	svg {
+		$space: $padding * 2;
+		display: block;
+		width: ($width - $space);
+		height: ($height - $space);
+		margin: $padding;
+	}
+}
+
+// STYLE-based half of the svg-icon pair of mixins.
+//
+// $fill-color - the color of the default state SVG. OPTIONAL
+// $bg-color - the background color of the default state of the entire icon object (not the SVG).  OPTIONAL
+// $hover-fill - the color of the hover state SVG.  OPTIONAL
+// $hover-bg - the background color of the hover state of the entire icon object (not the SVG).  OPTIONAL
+// $roundness - option to curve the edges of the icon object. use 100% to create an oval.  OPTIONAL 
+
+@mixin svg-icon-style($fill-color: null, $bg-color: null, $hover-fill: null, $hover-bg: null, $roundness: null) {
+	background-color: $bg-color;
+	color: $fill-color;
+
+	@if $roundness { border-radius: $roundness; }
+	
+	svg { fill: $fill-color; }
+
+	@include hover {
+		background-color: $hover-bg;
+		color: $hover-fill;
+
+		svg { fill: $hover-fill; }
+	}
+}
+	
+// Unified mixin of the 2 base svg-icon mixins.  See above for variable usage.
+
+@mixin svg-icon(
+		$width: auto, 
+		$height: auto, 
+		$padding: 0, 
+		$fill-color: null, 
+		$bg-color: null, 
+		$hover-fill: null, 
+		$hover-bg: null, 
+		$roundness: null
+	) {
+	@include svg-icon-size($width, $height, $padding);
+	@include svg-icon-style($fill-color, $bg-color, $hover-fill, $hover-bg, $roundness);
+}
+	
+// -------------------------------------------------------
+// Alignment and general positioning
+// -------------------------------------------------------
+
+// Generic clear fix.  Use to clear floats and things.  
+// Due to the incrased prevalence of flex we will need to rely on this less and less.
+
+@mixin clearfix {
+	&:before, &:after {
+		content: "";
+		display: table;
+	}
+	
+	&:after { clear: both; }
+}
+
+// Used to effectively hide an object visually but still allow it to be seen by 
+// screenreaders and other things.  
+// This is often preferable to display: none, but not always.
+
+@mixin hidden { 
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+}
+
+
+// A simple and responsive-friendly way to make an object fill the screen width up to a certain point,
+// and then centered above that point.
+//
+// $width - the point at width the 100% stretching stops. Default of $site-width defined in _settings.scss. OPTIONAL
+// $padding - amount of padding on the sides to offset the width calculations.  Does not have to be symmetrical
+//	but DOES have to be declared where you are using width-constrain.  OPTIONAL
+//	i.e. @include width-constran($padding: 20px); padding: 0 5px 0 15px; 
+// $percent-width - if you don't want the object to be 100% wide you can define that % here.  Can sometimes
+//	be used as a more responsive-friendly shorthand in some circumstances. OPTIONAL
+
+@mixin width-constrain($width: $site-width, $padding: null, $percent-width: 100%) {
+	box-sizing: border-box;
+	margin: {
+		left: auto;
+		right: auto;
+	}
+	width: $percent-width;
+	max-width: $width;
+
+	@if $padding {
+		padding: {
+			left: $padding;
+			right: $padding;
+		}
+	}
+}
+
+// -------------------------------------------------------
+// Backgrounds, images, etc.
+// -------------------------------------------------------
+
+// Used to replace an object visually with an image, but retain the text of the object for screenreaders etc.
+// Height and width usually match the image you're using to replace the content but not always!
+//
+// $width - width of the object after image replacement.  REQUIRED
+//	NOTE: if the viewport is narrower than it will be 100% wide
+// $height - height of the object after image replacement.  REQUIRED
+// $image - file path of the image intended to be displayed.  OPTIONAL
+//	NOTE: this is only really OPTIONAL because in cases lke a shared design you will be setting up your sizes on the template
+//	and defining your background-images on the campus.  MOST of the time you shouldn't skip this!
+
+@mixin image-replace($width: null, $height: null, $image: null) {
+	@include bg-contain;
+	display: block;
+	overflow: hidden;
+	height: $height;
+	width: $width;
+	max-width: 100%;
+	white-space: nowrap;
+	text-indent: 200%;
+	color: transparent;
+	background: {
+		position: center center;
+		repeat: no-repeat;
+	}
+	
+	@if $image {
+		background-image: url('#{$image}');
+	}
+}
+
+// Simple single-line to have the background-image cover the full element
+
+@mixin bg-cover{
+	background: {
+		repeat: no-repeat;
+		position: center center;
+		size: cover;
+	}
+}
+
+// Simple single-line to have the background-image contained within the full element
+
+@mixin bg-contain {
+	background: {
+		repeat: no-repeat;
+		position: center center;
+		size: contain;
+	}
+}
+
+// Takes a certain number of sequential child items and gives them an appropriate background image that 
+// matches the specified pattern.  Often used for quicklinks. REQUIRES consistently named background images.
+// e.g.
+// #qlinks
+// first-child -> qlinks1.jpg
+// second-child -> qlinks2.jpg
+// etc.
+//
+// $num - the number of items you'll be looking through (usually the number of quicklinks etc.  can
+//	be larger than the actual number of items, it will just output a lot of extra CSS). REQUIRED
+// $name - the core of the name of the images used for background images. REQUIRED
+// $format - the file format of the images used (must be same for all). OPTIONAL
+// $path - the directory path of the images used (must be same for all). OPTIONAL
+// $bg-sizing - if keyword "cover" or "contain" is used, will apply the previous background-position
+//	shortcut mixins.  OPTIONAL
+// $descriptor - pass any parameter to have the rule apply to a child of the sequentially determined element.
+//  i.e. a link that is the child of a list item.  OPTIONAL
+
+@mixin sequential-bg(
+		$num, 
+		$name, 
+		$format: "png", 
+		$path: "/pics/", 
+		$bg-sizing: null, 
+		$descriptor: null
+	) {
+
+	@if $descriptor {
+		@if $bg-sizing == cover {
+			#{$descriptor} { @include bg-cover; }
+		} @else if $bg-sizing == contain {
+			#{$descriptor} { @include bg-contain; }
+		}
+	}
+	@else {
+		@if $bg-sizing == cover {
+			@include bg-cover;
+		} @else if $bg-sizing == contain {
+			@include bg-contain;
+		}
+	}
+
+	@for $i from 1 through $num {
+		&:nth-of-type(#{$i}) #{$descriptor} { background-image: url('#{$path}#{$name}#{$i}.#{$format}'); }
+	}
+}
+
+// Takes a LIST of specified items and gives each item an appropriate background image that matches 
+// the specified pattern.  Often used for quicklinks where you care more about the NAME of the item 
+// than the ORDER in which it appears (for example: a list of schools in a distict shown on every home 
+// page, but on each campus page THAT school quicklink is subbed out for the District).
+// e.g. $name-list: ("district", "es", "hs"), $name: "school"
+// #school_district -> school_district.jpg
+// #school_es -> school_es.jpg
+// #school_hs -> school_hs.jpg
+// etc.
+//
+// $name-list - a LIST of strings containing ALL the suffixes you're going to use.  These suffixes must match both
+//	the ID of the child element AND the image files you want to use.  REQUIRED
+// $name - the core of the name of BOTH the IDs of the child elements AND the image files you want to use.  REQUIRED
+//	NOTE: $name is followed by an _ in all calculations.  See above example.
+// $format - the file format of the images used (must be same for all). OPTIONAL
+// $path - the directory path of the images used (must be same for all). OPTIONAL
+// $bg-sizing - if keyword "cover" or "contain" is used, will apply the previous background-position
+//	shortcut mixins.  OPTIONAL
+// $identifier - should be either # (for IDs) or . (for classes).  Usually you will want IDs, but in some 
+//  situations (such as slick slides, which will NOT clone the ID of your first items) you may want to use 
+//  classes instead. OPTIONAL
+// $descriptor - pass any parameter to have the rule apply to a child of the sequentially determined element.
+//  i.e. a link that is the child of a list item.  OPTIONAL
+
+@mixin listed-bg(
+		$name-list, 
+		$name, 
+		$format: "png", 
+		$path: "/pics/", 
+		$bg-sizing: null, 
+		$identifier: "#", 
+		$descriptor: null
+	) {
+	
+	@if $descriptor {
+		@if $bg-sizing == cover {
+			#{$descriptor} { @include bg-cover; }
+		} @else if $bg-sizing == contain {
+			#{$descriptor} { @include bg-contain; }
+		}
+	}
+	@else {
+		@if $bg-sizing == cover {
+			@include bg-cover;
+		} @else if $bg-sizing == contain {
+			@include bg-contain;
+		}
+	}
+
+	@each $item in $name-list {
+		&#{$identifier}#{$name}_#{$item} #{$descriptor} { background-image: url('#{$path}#{$name}_#{$item}.#{$format}');}
+	}
+}
+
+// -------------------------------------------------------
+// Pseudo-content and masks
+// -------------------------------------------------------
+
+
+// Creates a basic blank pseudo-element and declares just enough stuff to get it working.
+// Used as a base for more complex matte mixins.
+//
+// $pseudo - the pseudo-content slot to be used, either "before" or "after", depending no design needs. OPTIONAL
+
+@mixin pseudo($pseudo: "before"){
+	&:#{$pseudo}{
+		content: "";
+		display: block;
+		@content;
+	}
+}
+
+// A modification of the previous mixin that creates pseudo-content in BOTH before and after slots.
+
+@mixin pseudo-both{
+	&:before, &:after{
+		content: "";
+		display: block;
+		@content;
+	}
+}
+
+// Creates a basic pseudo-element to be used for blocking or matteing other content.
+// ex: solid color overlays or background images.
+// Not all (or even most) pseudo-content declarations will need to use this mixin.
+//
+// $pseudo - the pseudo-content slot to be used, either "before" or "after", depending no design needs. OPTIONAL
+
+@mixin mask($pseudo: "before") {
+	position: relative;
+	
+	@include pseudo($pseudo) { 
+		position: absolute; 
+		@content;
+	}
+}
+
+// A modification of the previous mixin, but expands it to be the full size of the parent element.
+//
+// $pseudo - the pseudo-content slot to be used, either "before" or "after", depending no design needs. OPTIONAL
+
+@mixin mask-fullsize($pseudo: "before") {
+	@include mask($pseudo) {
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		@content;
+	}
+}
+
+// -------------------------------------------------------
+// Media queries and Responsiveness
+// -------------------------------------------------------
+// Note: These should almost always use the size variables from _settings.scss
+
+
+// Show all @content from a defined size UP.
+// This is BY FAR the most preferable media querie option to use.  
+// If you think you need a different one please think again! Maybe you do but likely you don't!
+//
+// $media-min - the size from which the included @content will begin to process.  REQUIRED
+
+@mixin respond-to($media-min) {
+	@media screen and (min-width: $media-min) {
+		@content;
+	}
+}
+
+// Show all @content from a defined size DOWN.
+//
+// $media-max - the size from which the included @content will STOP processing.  REQUIRED
+
+@mixin respond-to-max($media-max) {
+	@media screen and (max-width: $media-max - 1px) {
+		@content;
+	}
+}
+
+// Show all @content from between two sizes.
+//
+// $media-min - the size from which the included @content will begin to process.  REQUIRED
+// $media-max - the size from which the included @content will STOP processing.  REQUIRED
+
+@mixin respond-to-min-max($media-min, $media-max) {
+	@media screen and (min-width: $media-min) and (max-width: $media-max - 1px) {
+		@content;
+	}
+}
+
+// Simple one-line declaration to hide something UP TO a specific width.
+// i.e. above #width it will show.
+// NOTE: objects hidden this way will NOT be visible to screenreaders
+//
+// $width - the size at which the object will begin to show.  REQUIRED
+
+@mixin hide-to($width) {
+	@include respond-to-max($width) { display: none; }
+}
+
+// Three more mixins that apply the previous mixin to the standardized widths.
+// Most likely you'll use these if you need to.
+
+@mixin hide-small { @include hide-to($vp-mid); }
+@mixin hide-mid { @include hide-to($vp-large); }
+@mixin hide-large { @include hide-to($vp-max); }
+
+// ------------------------------------------------------------
+// Text and font size functions
+// ------------------------------------------------------------
+
+// Adjusts font-sizes fluidly across mobile, tablet, and desktop based on defined ratios
+// and a final desired desktop size.
+//
+// $small-ratio - the ratio of the mobile font size to the desktop font size. OPTIONAL
+// $mid-ratio - the ratio of the tablet font size to the desktop font size. OPTIONAL
+// $final-size - the desired size of the font on desktop size. OPTIONAL
+
+@mixin scale-font($small-ratio: .5, $mid-ratio: .75, $final-size: 1rem) {
+	font-size: $small-ratio * $final-size;
+
+	@include respond-to($vp-mid) { font-size: $mid-ratio * $final-size; }
+	@include respond-to($vp-large) { font-size: $final-size; }
+}
+
+// Converts a px size value to an equivalent em ratio.
+// NOTE: since this uses @return it should be used as part of a parameter value
+// i.e. font-size: emify(36px, 18px);
+//
+// $target - the intended px value you want to convert. REQUIRED
+// $context - If you do NOT want the base size assumption of "1em" to be 16px, define it here. OPTIONAL 
+// $unit - The type of unit you want this output as.  Should really only be either em or rem.  OPTIONAL
+//	NOTE: this is a weird thing to do.
+
+@function emify($target, $context: $base-font-size, $unit: rem) {
+	@if $target == 0 { @return 0 }
+	@return $target / $context + $unit;
+}
+
+// ------------------------------------------------------------
+// Misc.
+// ------------------------------------------------------------
+
+// Finds the square root of the desired number.
+// NOTE: SASS has a normal precision to 5 decimals.  This should be fine?
+//
+// $r - the number which you wish to find the squre root of. REQUIRED
+
+@function sqrt($r) {
+	$x0: 1;
+	$x1: $x0;
+
+	@for $i from 1 through 10 {
+		$x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+		$x0: $x1;
+	}
+ 
+	@return $x1;
+}
+
+// Selects the first HALF of the child elements of an object and applies the
+//  @content to those items.
+//
+// $val - the hypothetical maximum number of items you want to sort through.
+//  This is necessary because we're brute forcing the calculations, basically.  OPTIONAL
+// $round - how to deal with odd-numbered sets.  For the set {1,2,3} "up" would select {1,2}
+//  and "down" would select {1}.  OPTIONAL
+
+@mixin select-first-half-children($val: 5, $round: "down") {
+	@if $round == "up" {
+		&:first-child { @content; }
+
+		@for $i from 2 through $val {
+			&:nth-last-child(n+#{$i}):nth-child(-n+#{$i}) { @content; }
+		}
+	} @else if $round == "down" {
+		&:nth-last-child(n+2):last-child { @content; }
+
+		@for $i from 2 through $val {
+			&:nth-last-child(n+#{$i + 1}):nth-child(-n+#{$i}) { @content; }
+		}
+	}
+}
+
+// Selects the last HALF of the child elements of an object and applies the
+//  @content to those items.
+//
+// $val - the hypothetical maximum number of items you want to sort through.
+//  This is necessary because we're brute forcing the calculations, basically.  OPTIONAL
+// $round - how to deal with odd-numbered sets.  For the set {1,2,3} "up" would select {3}
+//  and "down" would select {2,3}.  OPTIONAL
+
+@mixin select-last-half-children($val: 5, $round: "down") {
+	@if $round == "down" {
+		&:first-child:last-child { @content; }
+
+		@for $i from 2 through $val {
+			&:nth-child(n+#{$i}):nth-last-child(-n+#{$i}) { @content; }
+		}
+	} @else if $round == "up" {
+		&:nth-child(n+2):last-child { @content; }
+
+		@for $i from 2 through $val {
+			&:nth-child(n+#{$i + 1}):nth-last-child(-n+#{$i}) { @content; }
+		}
+	}
+}
+

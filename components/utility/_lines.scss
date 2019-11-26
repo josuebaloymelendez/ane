@@ -1,0 +1,23 @@
+.line {
+	&-vertical {
+		&__decorative {
+			@include respond-to($vp-large) {
+				@include mask-fullsize {
+					width: 10px; 
+					background: {
+						image: linear-gradient(
+							to bottom, 
+							$cat1-color 0%,
+							$cat1-color 33%,
+							$cat2-color 33%,
+							$cat2-color 66%,
+							$cat3-color 66%,
+							$cat3-color 100%
+						);
+						repeat: no-repeat;
+					}
+				}
+			}
+		}
+	}
+}

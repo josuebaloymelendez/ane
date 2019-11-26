@@ -1,0 +1,237 @@
+#categories {
+	&_row {
+		@include respond-to($vp-large) {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -50px;
+			width: 100%;
+			transform: translate(-50%, -50%);
+		}
+	}
+	&_container {
+		.items-list {
+			@include flex-direction(column);
+		}
+		.qlink-item {
+			@include flex-all($direction: column, $align: center);
+			margin: 20px auto;
+			width: 300px;
+
+			&:first-child {
+				.first-line {
+					&:before {
+						left: auto;
+						right: 0;
+					}
+				}
+			}
+			a {
+				@include flex-all($direction: column, $justify: center, $align: center);
+				height: 100%;
+				color: $primary-color;
+				background-color: $c-white;
+				border-radius: 30px;
+				text-decoration: none;
+
+				@include pseudo {
+					width: 167px;
+					height: 178px;
+					background: {
+						repeat: no-repeat;
+						position: center;
+					}
+				}
+				@include hover {
+					.first-line {
+						&:before {
+							width: 80%;
+						}
+					}
+				}
+			}
+		}
+		.item-inner {
+			@include flex-all($direction: column, $justify: center);
+			margin: 0 auto;
+			width: 250px;
+			height: 178px;
+		}
+		.first-line {
+			display: block;
+			font: {
+				size: 1.5rem;
+				family: $primary-font-black;
+				weight: 900;
+			}
+			letter-spacing: 2px;
+
+			@include mask {
+				top: calc(100% + 10px);
+				left: 0;
+				width: 0;
+				height: 2px;
+				background-color: $primary-color;
+				border-radius: 30px;
+				transition: width .3s ease-in-out;
+			}
+		}
+		.second-line {
+			margin: 20px auto 0;
+			padding-bottom: 5px;
+			max-width: 136px;
+			color: $c-black;
+			border-bottom: 1px dashed rgba($c-black, .2);
+			letter-spacing: 1.65px;
+		}
+		.qlink-description {
+			display: block;
+			margin: 30px 0 20px;
+			font-size: 1.125rem;
+			text-align: center;
+		}
+		@include respond-to-max($vp-large) {
+			a {
+				&:before {
+					margin: 0 auto;
+				}
+			}
+			.first-line {
+				text-align: center;
+			}
+		}
+		@include respond-to($vp-mid) {
+			.qlink-item {
+				position: relative;
+				padding: 0 20px;
+				width: 60%;
+				
+				a {
+					height: 213px;
+				}
+				&:first-child {
+					a:before {
+						margin-left: 27px;
+					}
+					.item-inner {
+						margin-right: 24px;
+					}
+					.first-line {
+						text-align: right;
+					}
+					.second-line {
+						margin-right: 0;
+					}
+				}
+				&:last-child {
+					a {
+						@include flex-direction(row-reverse);
+
+						&:before {
+							margin-right: 27px;
+						}
+					}
+					.item-inner {
+						margin-left: 24px;
+					}
+					.first-line {
+						text-align: left;
+					}
+					.second-line {
+						margin-left: 0;
+						text-align: left;
+					}
+				}
+				a {
+					@include flex-direction(row);
+				}
+			}
+		}
+		@include respond-to($vp-large) {
+			padding: 0;
+			
+			.items-list {
+				@include flex-direction(row);
+			}
+			.qlink-item {
+				margin: 0 auto;
+				width: 454px;
+				border-radius: 0;
+
+				a {		
+					width: 100%;			
+					background: {
+						color: transparent;
+						image: url(pics/cat-left.png);
+						size: cover;
+						repeat: no-repeat;
+					}
+
+					&:before {
+						margin-top: -37px;
+					}
+				}
+
+				&:first-child {
+					.item-inner {
+						margin: -37px 24px 0 auto;
+					}
+				}
+				&:last-child {
+					a { 
+						background-image: url(pics/cat-right.png);
+					}
+
+					.item-inner {						
+						margin: -37px auto 0 24px;
+					}
+				}
+				a {
+					background-color: transparent;
+				}
+			}
+			.item-inner {
+				margin: 0;
+			}
+		}
+		@include respond-to($vp-max) {
+			.items-list {
+				@include flex-all($direction: row, $justify: center, $wrap: nowrap);
+			}
+			.qlink-item {
+				width: 500px;
+
+				&:first-child {
+					margin-right: 170px;
+
+					.item-inner {
+						margin: {
+							left: auto;
+							right: 24px;
+						}
+					}
+				}
+				&:last-child {
+					margin-left: 170px;
+
+					.item-inner {
+						margin: {
+							right: auto;
+							left: 24px;
+						}
+					}
+				}
+			}
+		}
+		@include respond-to(1400px) {
+			.qlink-item {
+				&:first-child {
+					margin-right: 250px;
+				}
+				&:last-child {
+					margin-left: 250px;
+				}
+			}			
+		}
+	}
+}

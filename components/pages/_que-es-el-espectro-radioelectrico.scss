@@ -1,0 +1,68 @@
+.page-que-es-el-espectro-radioelectrico {
+	background: linear-gradient(
+		to bottom, 
+		$cat1-color 0%,
+		$tertiary-color 80%,
+		darken($tertiary-color, 20%) 100%
+	);
+	background-attachment: scroll !important;
+}
+
+.content {
+	&-middle {
+		position: relative;
+		margin: 40px 0;
+		color: $color-over-cat1;
+		background-color: darken($cat1-color, 10%);
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background-color: rgba($c-white, .2);
+		}
+		&:before {
+			top: calc(100% + 10px);
+		}
+		&:after {
+			bottom: calc(100% + 10px);
+		}
+	}
+}
+
+#quicklinks2_container {
+	.title {
+		@include pseudo {
+			@include bg-cover;
+			margin: 0 auto 10px;
+			width: 295px;
+			height: 100px;
+			background-image: url(pics/logo-ane-blanco.png);
+		}
+	}
+	.qlink-item {
+		@include flex(1);
+		margin: 10px;
+
+		@for $i from 1 through 3 {
+			&:nth-of-type(#{$i}):before { 
+				background-image: url('pics/icons/qlink#{$i}.svg'); 
+			}
+		}
+
+		@include pseudo {
+			margin: 0 auto 10px;
+			width: 204px;
+			height: 204px;
+		}
+	}
+	.qlink-text {
+		display: block;
+		margin: 0 auto;
+		width: 200px;
+		font-size: 1.125rem;
+	}
+}
