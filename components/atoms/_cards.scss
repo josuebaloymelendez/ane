@@ -1,15 +1,32 @@
+.cards {
+	@include respond-to-max($vp-large) {
+		@include flex-wrap(nowrap);
+		@include flex-direction(column);
+	}
+	@include respond-to($vp-mid) {
+		padding: 0 40px;
+	}
+	@include respond-to($vp-large) {
+		padding: 0;
+	}
+}
 .card {
-	@include flex(0 1 calc(50% - 60px));
-	margin: 15px 30px;
+	@include flex(1);
+	margin: 15px 0;
 	position: relative;
 	width: 100%;
 	color: $c-black;
 	background-color: $c-white;
 	border-radius: 30px;
- 
+
+	@include respond-to($vp-large) {		
+		@include flex(0 1 calc(50% - 60px));
+		margin: 15px 30px;
+	}
+
 	&-img {
 		display: block;
-		margin: 0 auto;
+		margin: 0 20px 20px;
 
 		img {
 			display: block;
@@ -25,6 +42,8 @@
 			top: 50%;
 			left: -40px;
 			transform: translateY(-50%);
+
+			margin: 0;
 		}
 	}
 	&-summary {
@@ -69,7 +88,7 @@
 	}
 	&-award-true {
 		@include pseudo {
-			@include bg-cover;
+			@include bg-contain;
 			margin-right: 10px;
 			width: 31px;
 			height: 43px;

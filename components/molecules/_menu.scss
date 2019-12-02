@@ -49,12 +49,15 @@
 					position: fixed;
 					z-index: 99999;
 				}
+				.nav-mobile-toggle {
+					position: fixed;
+				}
 			}
-			.nav-mobile-toggle {
-				position: fixed; 
-				z-index: 999999;
-				top: 31px;
-			}
+		}
+		.nav-mobile-toggle {
+			position: fixed; 
+			z-index: 999999;
+			top: 31px;
 		}
 		.nav-menu {
 			top: 0;

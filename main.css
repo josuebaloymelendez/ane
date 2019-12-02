@@ -509,20 +509,46 @@ figure {
       color: white;
       background: linear-gradient(to bottom, #780478 0%, #3c023c 100%); }
 
+@media screen and (max-width: 1023px) {
+  .cards {
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: none;
+    flex-wrap: nowrap;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; } }
+
+@media screen and (min-width: 768px) {
+  .cards {
+    padding: 0 40px; } }
+
+@media screen and (min-width: 1024px) {
+  .cards {
+    padding: 0; } }
+
 .card {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 1 calc(50% - 60px);
-  -ms-flex: 0 1 calc(50% - 60px);
-  flex: 0 1 calc(50% - 60px);
-  margin: 15px 30px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin: 15px 0;
   position: relative;
   width: 100%;
   color: black;
   background-color: white;
   border-radius: 30px; }
+  @media screen and (min-width: 1024px) {
+    .card {
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 1 calc(50% - 60px);
+      -ms-flex: 0 1 calc(50% - 60px);
+      flex: 0 1 calc(50% - 60px);
+      margin: 15px 30px; } }
   .card-img {
     display: block;
-    margin: 0 auto; }
+    margin: 0 20px 20px; }
     .card-img img {
       display: block;
       width: 120px;
@@ -535,7 +561,8 @@ figure {
         position: absolute;
         top: 50%;
         left: -40px;
-        transform: translateY(-50%); } }
+        transform: translateY(-50%);
+        margin: 0; } }
   .card-summary {
     padding: 0 20px;
     text-align: left; }
@@ -588,7 +615,7 @@ figure {
     display: block;
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: cover;
+    background-size: contain;
     margin-right: 10px;
     width: 31px;
     height: 43px;
@@ -1214,7 +1241,9 @@ figure {
     .sitenav.hamburger.open .nav-menu {
       position: fixed;
       z-index: 99999; }
-    .sitenav.hamburger .nav-mobile-toggle {
+    .sitenav.hamburger.open .nav-mobile-toggle {
+      position: fixed; }
+    .sitenav .nav-mobile-toggle {
       position: fixed;
       z-index: 999999;
       top: 31px; }
