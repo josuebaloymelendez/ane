@@ -40,4 +40,28 @@
 			margin: 0 90px;
 		}
 	}
+	&-small {
+		margin: {
+			top: 20px;
+			bottom: 20px;
+		}
+	}
+	&-middle {
+		margin: {
+			top: 60px;
+			bottom: 60px;
+		}
+	}
+	&-large {
+		margin: {
+			top: 80px;
+			bottom: 80px;
+		}
+	}
+	&-xlarge {
+		margin: {
+			top: 100px;
+			bottom: 100px;
+		}
+	}
 }

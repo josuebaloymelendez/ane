@@ -13,6 +13,7 @@
 		text-align: center;
 	}
 	.footer-inner-bottom {
+		@include flex-all($justify: center, $align: center);
 		width: 100%;
 		background-color: $c-white;
 	}

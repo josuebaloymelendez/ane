@@ -3,6 +3,7 @@
 		&__decorative {
 			@include respond-to($vp-large) {
 				@include mask-fullsize {
+					z-index: 9;
 					width: 10px; 
 					background: {
 						image: linear-gradient(

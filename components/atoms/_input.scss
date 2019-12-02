@@ -1,0 +1,139 @@
+.custom-select-wrapper {
+    padding: 20px;
+    
+    &-inner {
+        background-color: rgba($c-white, .15);
+        border-radius: 20px;
+    }
+}
+.custom-select-item {
+    position: relative;
+    user-select: none;
+    margin: 10px;
+    width: 248px;
+
+    .custom-select {
+        @include flex-all($direction: column);
+        margin-bottom: 10px;
+
+        a {
+            text-decoration: none;
+        }
+
+        &__trigger {
+            @include flex-all($justify: space-between, $align: center);
+            padding: 0 22px;
+            color: $c-almost-black;
+            height: 50px;
+            font: {
+                size: 1.125rem;
+                weight: 300;
+            }
+            background-color: $c-white;
+            line-height: 60px;
+            border-radius: 15px;
+            cursor: pointer;
+
+            @include mask {
+                top: 0;
+                right: 0;
+                width: 60px;
+                height: 100%;
+                background: linear-gradient(
+                    to bottom, 
+                    $c-purple 0%,
+                    $c-purple-dark 100%
+                );
+                border-radius: 0 15px 15px 0;
+            }
+        }
+        &.open .custom-options {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: all;
+        }
+    }
+    .custom-options {
+        display: block;
+        position: absolute;
+        z-index: 2;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: $c-white;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: all 0.5s;
+    }
+    .custom-option {
+        display: block;
+        position: relative;
+        padding: 0 22px 0 22px;
+        color: $c-almost-black;
+        font: {
+            size: 22px;
+            weight: 300;
+        }
+        line-height: 60px;
+        cursor: pointer;
+        transition: all 0.5s;
+
+        &.selected {
+            color: $c-white;
+            background-color: $c-purple;
+
+            a {
+                color: inherit;
+            }
+        }
+        @include hover {
+            cursor: pointer;
+            color: $c-white;
+            background-color: $c-purple;
+
+            a {
+                color: inherit;
+            }
+        }
+    }
+    .arrow {
+        position: relative;
+        height: 15px;
+        width: 15px;
+
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            margin-left: 6px;
+            width: 0.15rem;
+            height: 100%;
+            transition: all 0.5s;
+        }
+        &:before {
+            left: -5px;
+            // transform: rotate(45deg);
+            transform: rotate(-45deg);
+            background-color: $c-white;
+        }
+        &:after {
+            left: 5px;
+            transform: rotate(45deg);
+            background-color: $c-white;
+        }
+    }
+    .open {
+        .arrow {
+            &:before {
+                left: -5px;
+                transform: rotate(45deg);
+            }
+            &:after {
+                left: 5px;
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}

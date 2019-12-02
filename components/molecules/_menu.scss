@@ -43,12 +43,20 @@
 		}
 	}
 	@include respond-to($vp-large) {
-		.nav-mobile-toggle {
-			z-index: 999999;
-			top: 31px;
+		&.hamburger {
+			&.open {
+				.nav-menu {
+					position: fixed;
+					z-index: 99999;
+				}
+			}
+			.nav-mobile-toggle {
+				position: fixed; 
+				z-index: 999999;
+				top: 31px;
+			}
 		}
 		.nav-menu {
-			z-index: 99999;
 			top: 0;
 			height: 100%;
 			background-color: rgba($c-black, .9);

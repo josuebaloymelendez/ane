@@ -23,11 +23,26 @@
 	}
 	&-center {
 		text-align: center;
+
+		&__block {
+			margin: {
+				left: auto;
+				right: auto;
+			}
+		}
 	}
 	&-left {
 		text-align: left;
+
+		&__block {
+			margin-right: auto;
+		}
 	}
 	&-right {
 		text-align: right;
+
+		&__block {
+			margin-left: auto;
+		}
 	}
 }

@@ -1,0 +1,93 @@
+.card {
+	@include flex(0 1 calc(50% - 60px));
+	margin: 15px 30px;
+	position: relative;
+	width: 100%;
+	color: $c-black;
+	background-color: $c-white;
+	border-radius: 30px;
+ 
+	&-img {
+		display: block;
+		margin: 0 auto;
+
+		img {
+			display: block;
+			width: 120px;
+			height: 120px;
+			border-radius: 50%;
+			border: 6px solid $primary-color;
+			object-fit: cover;
+		}
+
+		@include respond-to($vp-mid) {			
+			position: absolute;
+			top: 50%;
+			left: -40px;
+			transform: translateY(-50%);
+		}
+	}
+	&-summary {
+		padding: 0 20px;
+		text-align: left;
+
+		@include respond-to($vp-mid) {
+			padding-left: 100px;
+		}
+	}
+	&-header {
+		@include flex-all($align: center);
+
+		&-inner {
+			@include flex-all($direction: column);
+			text-align: left;
+
+			> * {
+				margin: 0;
+			}
+		}
+	}
+	&-name {
+		@include order(1);
+		font: {
+			size: .87rem;
+			family: $primary-font-black;
+			weight: 900;
+		}
+	}
+	&-title {
+		@include order(2);
+		font: {
+			size: 1.125rem;
+			weight: 400;
+		}
+	}
+	&-text {
+		display: block;
+		padding: 10px 0;
+		line-height: 1.5;
+	}
+	&-award-true {
+		@include pseudo {
+			@include bg-cover;
+			margin-right: 10px;
+			width: 31px;
+			height: 43px;
+			background-image: url(pics/award.png);
+		}
+	} 
+	&-date {
+		position: absolute;
+		top: 10px;
+		right: 30px;
+		font-size: .65rem;
+	}
+	&-ane {
+		color: $c-white;
+		background-color: $primary-color;
+
+		a {
+			color: $c-white;
+		}
+	}
+}

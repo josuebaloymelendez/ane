@@ -19,6 +19,7 @@
 // Atomic Design
 @import "components/atoms/titles";
 @import "components/atoms/buttons";
+@import "components/atoms/cards";
 @import "components/atoms/categories";
 @import "components/atoms/chat";
 @import "components/atoms/form";
@@ -28,6 +29,7 @@
 @import "components/atoms/messages"; 
 @import "components/atoms/motto"; 
 @import "components/atoms/quicklinks"; 
+@import "components/atoms/tags"; 
 
 @import "components/molecules/menu";
 @import "components/molecules/banner";
@@ -45,6 +47,7 @@
 @import "components/pages/que-es-el-espectro-radioelectrico";
 @import "components/pages/mitos-y-verdades-del-espectro-radioelectrico";
 @import "components/pages/casos-de-exito";
+@import "components/pages/cocrea-el-futuro";
  
 // Variations thru Events
 // @import "components/states/"; 
