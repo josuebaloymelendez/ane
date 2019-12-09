@@ -48,13 +48,14 @@ $c-black				: rgb(0,0,0);
 $c-almost-black			: rgb(15,15,15);
 $c-white				: rgb(255,255,255);
 $c-almost-white			: rgb(245,245,245);
-$c-grey					: rgb(42,42,42);
+$c-grey					: rgb(32,32,32);
 $c-grey-mid				: rgb(165,165,165);
 $c-purple				: rgb(120,4,120);
 $c-purple-dark			: rgb(60,2,60);
-$c-red					: rgb(255,0,0);
+$c-red					: rgb(141,2,2);
 $c-green				: rgb(9,116,1);
 $c-blue 				: rgb(0,87,167);
+$c-yellow 				: rgb(238,255,0);
 
 // Blue
 $primary-color			: rgb(1,47,90);
@@ -85,7 +86,7 @@ $cat2-color				: rgb(13,98,136);
 $color-over-cat2		: $c-white;
 
 // Espectro
-$cat3-color				: rgb(101, 63, 128);
+$cat3-color				: rgb(73, 46, 127); //rgb(101, 63, 128);
 $color-over-cat3		: $c-white;
 
 

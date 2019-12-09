@@ -93,3 +93,8 @@
 		weight: 700;
 	}
 }
+.description-text {
+	@include width-constrain(900px);
+	display: block;
+	font-size: 1.125rem;
+}

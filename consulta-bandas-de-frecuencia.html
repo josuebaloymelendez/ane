@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Consulta Bandas de Frecuencia | Espectro</title>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body class="page page-consulta-de-bandas-de-frecuencia line-vertical__decorative">
+	<header id="header_main" class="site-header padding-row display-row align-vertical__center" aria-label="Header Principal">
+		<!-- Logo Header -->
+		<div class="header-title">
+			<a href="index.html">Portal Espectro</a>
+			<button class="action-back c-white" onclick="goBack()">Atrás</button>
+		</div>
+		<!-- end Logo Header -->
+		
+		<!-- Menu -->
+		<nav id="sitenav_main" class="sitenav nav-group hamburger" aria-label="Menu Principal">
+			<button id="sitenav_main_mobile_toggle" class="nav-mobile-toggle accessible-megamenu-toggle animated">
+				<span class="nav-mobile-toggle-inner">
+					<span class="nav-mobile-text c-white">Menu</span>
+				</span>
+			</button>
+			<div class="nav-menu">
+				<div class="nav-menu-inner">
+					<ul class="items-list">
+						<li class="nav-item">
+							<a href="generalidades.html">
+								<span class="nav-item-inner">
+									<span class="first-line">Generalidades</span>
+									<span class="second-line">del espectro</span>
+								</span>
+							</a>
+							<div class="sub-nav">
+								<ul class="sub-nav-group">
+									<li class="flyout">
+										<ul class="flyout-group">
+											<li class="sub-nav-item">
+												<a href="mitos-y-verdades-del-espectro-radioelectrico.html">¿Qué es el espectro radioeléctrico?</a>
+											</li>
+											<li class="sub-nav-item">
+												<a href="mitos-y-verdades-del-espectro-radioelectrico.html">Mitos y verdades del espectro</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>					
+						</li>
+						<li class="nav-item">
+							<a href="espectro-visible.html">
+								<span class="nav-item-inner">
+									<span class="first-line">Espectro</span>
+									<span class="second-line">Visible</span>
+								</span>
+							</a>
+							<div class="sub-nav">
+								<ul class="sub-nav-group">
+									<li class="flyout">
+										<a href="trabajo-con-el-espectro.html" target="_blank">Trabajo con el espectro</a>
+										<ul class="flyout-group">
+											<li class="sub-nav-item">
+												<a href="cnabf-tecnico.html">CNABF Técnico</a>
+											</li>
+											<li class="sub-nav-item">
+												<a href="disponibilidad.html">Disponibilidad</a>
+											</li>
+											<li class="sub-nav-item">
+												<a href="aplicaciones.html">Aplicaciones</a>
+											</li>
+											<li class="sub-nav-item">
+												<a href="simulacion.html">Simulación</a>
+											</li>
+											<li class="sub-nav-item">
+												<a href="sirce.html">SIRCE</a>
+											</li>
+											<li class="sub-nav-item">
+												<a href="operacion.html">Operación</a>
+											</li>
+										</ul>
+									</li>
+
+									<li class="flyout">
+										<a href="espacio-ciudadano.html" target="_blank">Espacio Ciudadano</a>
+										<ul class="flyout-group">
+											<li class="sub-nav-item">
+												<a href="ciudadano.html">Ciudadano</a>
+											</li>
+											<li class="sub-nav-item">
+												<a href="el-espectro-y-tu-salud.html">El espectro y tu salud</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>					
+						</li>
+						<li class="nav-item">
+							<a href="espacio-comunitario.html">
+								<span class="nav-item-inner">
+									<span class="first-line">Espacio</span>
+									<span class="second-line">Comunitario</span>
+								</span>
+							</a>
+							<div class="sub-nav">
+								<ul class="sub-nav-group">
+									<li class="flyout">
+										<ul class="flyout-group">
+											<li class="sub-nav-item">
+												<a href="cocrea-el-futuro.html">Cocrea el futuro</a>
+											</li>
+											<li class="sub-nav-item">
+												<a href="casos-de-exito.html">Casos de éxito</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>					
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- end Menu -->
+	</header>
+
+	<main id="content_main" class="site-content display-column" aria-label="Contenido Principal" tabindex="-1">
+		<div class="content-grid">
+			<!-- page title -->
+			<h1 class="title title-subpage c-white padding-row align-center align-horizontal__center">
+				<span class="first-line">Espectro Visible</span>
+				<span class="second-line">Consulta bandas de frecuencia</span>
+			</h1>
+			<!-- end page title -->
+
+			<!-- row -->
+			<div id="consulta_bandas_row" class="content-row content-top content-format c-white align-center padding-xlarge">
+				<!-- row inner -->
+				<div class="content-row-inner">
+					<!-- content -->
+					<section class="content-container tabs-container consulta-bandas" id="consulta_bandas_container" aria-labelledby="consulta_bandas_header">
+						<h2 class="subtitle c-white align-center" id="consulta_bandas_header">Sector</h2>		
+						<div id="consulta_bandas_tab_container" class="tabs-group">
+						    <ul class="items-list display-row display-wrap align-horizontal__center tabs tabs-top"> 
+							    <li><a href="#tab0">Seguridad</a></li>
+							    <li><a href="#tab1">Hobbies</a></li>
+							    <li><a href="#tab2">Conectividad</a></li>
+							    <li><a href="#tab3">Navegación</a></li>
+							</ul>
+							<div id="tab0" class="tab-content">
+							    <ul class="items-list display-row display-wrap align-horizontal__center align-vertical__center tabs"> 
+							        <li><a href="#tab0-0">Drones</a></li>
+							        <li><a href="#tab0-1">RC Control</a></li>
+							        <li><a href="#tab0-2">Micrófono</a></li>
+							    </ul>
+							    <div id="tab0-0" class="tab-panel">
+							        <div class="tab-column">
+							        	<h3 class="title subtitle">Frecuencias</h3>
+							        	<table class="table">
+											<tr class="table-title">
+												<th width="215">Application Frequency</th>
+												<th>Application Name</th>
+											</tr>
+											<tr>
+												<td>2.4 GHz - 2.4835 GHz</td>
+												<td>Non-Specific Short Range Device</td>
+											</tr>
+										</table>
+							        </div>
+							    	<div class="tab-column">
+							        	<h3 class="title subtitle">Recomendaciones</h3>
+							        	<p>En caso de que su dispositivo no este en estas frecuencias, comunicarse con la ANE.</p>
+							        </div>
+							    </div>
+							    <div id="tab0-1" class="tab-panel">
+							        <div class="tab-column">
+							        	<h3 class="title subtitle">Frecuencias</h3>
+							        	<table class="table">
+											<tr class="table-title">
+												<th width="215">Application Frequency</th>
+												<th>Application Name</th>
+											</tr>
+											<tr>
+												<td>2.4 GHz - 2.4835 GHz</td>
+												<td>Non-Specific Short Range Device</td>
+											</tr>
+										</table>
+							        </div>
+							    	<div class="tab-column">
+							        	<h3 class="title subtitle">Recomendaciones</h3>
+							        	<p>En caso de que su dispositivo no este en estas frecuencias, comunicarse con la ANE.</p>
+							        </div>
+							    </div> 
+							    <div id="tab0-2" class="tab-panel">
+							        <div class="tab-column">
+							        	<h3 class="title subtitle">Frecuencias</h3>
+							        	<table class="table">
+											<tr class="table-title">
+												<th width="215">Application Frequency</th>
+												<th>Application Name</th>
+											</tr>
+											<tr>
+												<td>GHz</td>
+												<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
+											</tr>
+										</table>
+							        </div>
+							    	<div class="tab-column">
+							        	<h3 class="title subtitle">Recomendaciones</h3>
+							        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi velit eveniet, animi placeat autem quia nam sint obcaecati expedita veritatis aspernatur quis temporibus pariatur nobis iure quo earum officiis accusantium?</p>
+							        </div>
+							    </div>
+							</div>
+
+							<div id="tab1" class="tab-content">
+							    <ul class="items-list display-row display-wrap align-horizontal__center align-vertical__center tabs">  
+							        <li><a href="#tab1-0">Hobbies Tab 1 - 0</a></li>
+							        <li><a href="#tab1-1">Hobbies Tab 1 - 1</a></li>
+							        <li><a href="#tab1-2">Hobbies Tab 1 - 2</a></li>
+							    </ul>
+							    <div id="tab1-0" class="tab-panel">
+							        <div class="tab-column">
+							        	<h3 class="title subtitle">Frecuencias</h3>
+							        	<table class="table">
+											<tr class="table-title">
+												<th width="215">Application Frequency</th>
+												<th>Application Name</th>
+											</tr>
+											<tr>
+												<td>GHz</td>
+												<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
+											</tr>
+										</table>
+							        </div>
+							    	<div class="tab-column">
+							        	<h3 class="title subtitle">Recomendaciones</h3>
+							        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi velit eveniet, animi placeat autem quia nam sint obcaecati expedita veritatis aspernatur quis temporibus pariatur nobis iure quo earum officiis accusantium?</p>
+							        </div>
+							    </div>
+							    <div id="tab1-1" class="tab-panel">
+							        <div class="tab-column">
+							        	<h3 class="title subtitle">Frecuencias</h3>
+							        	<table class="table">
+											<tr class="table-title">
+												<th width="215">Application Frequency</th>
+												<th>Application Name</th>
+											</tr>
+											<tr>
+												<td>GHz</td>
+												<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
+											</tr>
+										</table>
+							        </div>
+							    	<div class="tab-column">
+							        	<h3 class="title subtitle">Recomendaciones</h3>
+							        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi velit eveniet, animi placeat autem quia nam sint obcaecati expedita veritatis aspernatur quis temporibus pariatur nobis iure quo earum officiis accusantium?</p>
+							        </div>
+							    </div>
+							    <div id="tab1-2" class="tab-panel">
+							        <div class="tab-column">
+							        	<h3 class="title subtitle">Frecuencias</h3>
+							        	<table class="table">
+											<tr class="table-title">
+												<th width="215">Application Frequency</th>
+												<th>Application Name</th>
+											</tr>
+											<tr>
+												<td>GHz</td>
+												<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
+											</tr>
+										</table>
+							        </div>
+							    	<div class="tab-column">
+							        	<h3 class="title subtitle">Recomendaciones</h3>
+							        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi velit eveniet, animi placeat autem quia nam sint obcaecati expedita veritatis aspernatur quis temporibus pariatur nobis iure quo earum officiis accusantium?</p>
+							        </div>
+							    </div>
+							</div>
+
+							<div id="tab2" class="tab-content">
+							    <ul class="items-list display-row display-wrap align-horizontal__center align-vertical__center tabs"> 
+							        <li><a href="#tab2-0">Conectividad Tab 2 - 0</a></li>
+							        <li><a href="#tab2-1">Conectividad Tab 2 - 1</a></li>
+							        <li><a href="#tab2-2">Conectividad Tab 2 - 2</a></li>
+							    </ul>
+							    <div id="tab2-0" class="tab-panel">
+							    	<div class="tab-column">
+							        	<h3 class="title subtitle">Frecuencias</h3>
+							        	<table class="table">
+											<tr class="table-title">
+												<th width="215">Application Frequency</th>
+												<th>Application Name</th>
+											</tr>
+											<tr>
+												<td>GHz</td>
+												<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
+											</tr>
+										</table>
+							        </div>
+							    	<div class="tab-column">
+							        	<h3 class="title subtitle">Recomendaciones</h3>
+							        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi velit eveniet, animi placeat autem quia nam sint obcaecati expedita veritatis aspernatur quis temporibus pariatur nobis iure quo earum officiis accusantium?</p>
+							        </div>
+							    </div>
+							    <div id="tab2-1" class="tab-panel">
+							        <div class="tab-column">
+							        	<h3 class="title subtitle">Frecuencias</h3>
+							        	<table class="table">
+											<tr class="table-title">
+												<th width="215">Application Frequency</th>
+												<th>Application Name</th>
+											</tr>
+											<tr>
+												<td>GHz</td>
+												<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
+											</tr>
+										</table>
+							        </div>
+							    	<div class="tab-column">
+							        	<h3 class="title subtitle">Recomendaciones</h3>
+							        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi velit eveniet, animi placeat autem quia nam sint obcaecati expedita veritatis aspernatur quis temporibus pariatur nobis iure quo earum officiis accusantium?</p>
+							        </div>
+							    </div>
+							    <div id="tab2-2" class="tab-panel">
+							        <div class="tab-column">
+							        	<h3 class="title subtitle">Frecuencias</h3>
+							        	<table class="table">
+											<tr class="table-title">
+												<th width="215">Application Frequency</th>
+												<th>Application Name</th>
+											</tr>
+											<tr>
+												<td>GHz</td>
+												<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
+											</tr>
+										</table>
+							        </div>
+							    	<div class="tab-column">
+							        	<h3 class="title subtitle">Recomendaciones</h3>
+							        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi velit eveniet, animi placeat autem quia nam sint obcaecati expedita veritatis aspernatur quis temporibus pariatur nobis iure quo earum officiis accusantium?</p>
+							        </div>
+							    </div>
+							</div>							
+
+							<div id="tab3" class="tab-content">
+							    <ul class="items-list display-row display-wrap align-horizontal__center align-vertical__center tabs"> 
+							        <li><a href="#tab3-0">Navegación Tab 3 - 0</a></li>
+							        <li><a href="#tab3-1">Navegación Tab 3 - 1</a></li>
+							        <li><a href="#tab3-2">Navegación Tab 3 - 2</a></li>
+							    </ul>
+							    <div id="tab3-0" class="tab-panel">
+							        <div class="tab-column">
+							        	<h3 class="title subtitle">Frecuencias</h3>
+							        	<table class="table">
+											<tr class="table-title">
+												<th width="215">Application Frequency</th>
+												<th>Application Name</th>
+											</tr>
+											<tr>
+												<td>GHz</td>
+												<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
+											</tr>
+										</table>
+							        </div>
+							    	<div class="tab-column">
+							        	<h3 class="title subtitle">Recomendaciones</h3>
+							        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi velit eveniet, animi placeat autem quia nam sint obcaecati expedita veritatis aspernatur quis temporibus pariatur nobis iure quo earum officiis accusantium?</p>
+							        </div>
+							    </div>
+							    <div id="tab3-1" class="tab-panel">
+							        <div class="tab-column">
+							        	<h3 class="title subtitle">Frecuencias</h3>
+							        	<table class="table">
+											<tr class="table-title">
+												<th width="215">Application Frequency</th>
+												<th>Application Name</th>
+											</tr>
+											<tr>
+												<td>GHz</td>
+												<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
+											</tr>
+										</table>
+							        </div>
+							    	<div class="tab-column">
+							        	<h3 class="title subtitle">Recomendaciones</h3>
+							        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi velit eveniet, animi placeat autem quia nam sint obcaecati expedita veritatis aspernatur quis temporibus pariatur nobis iure quo earum officiis accusantium?</p>
+							        </div>
+							    </div>
+							    <div id="tab3-2" class="tab-panel">
+							        <div class="tab-column">
+							        	<h3 class="title subtitle">Frecuencias</h3>
+							        	<table class="table">
+											<tr class="table-title">
+												<th width="215">Application Frequency</th>
+												<th>Application Name</th>
+											</tr>
+											<tr>
+												<td>GHz</td>
+												<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
+											</tr>
+										</table>
+							        </div>
+							    	<div class="tab-column">
+							        	<h3 class="title subtitle">Recomendaciones</h3>
+							        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi velit eveniet, animi placeat autem quia nam sint obcaecati expedita veritatis aspernatur quis temporibus pariatur nobis iure quo earum officiis accusantium?</p>
+							        </div>
+							    </div>
+							</div>
+						</div>
+					</section>
+					<div class="btn-holder padding-small">
+						<a href="" class="btn btn-red align-center align-center__block border-radius__10 padding-small">Ir al CNABF técnico</a>
+					</div>
+					<!-- end content -->
+				</div>
+				<!-- end row inner -->
+			</div>
+			<!-- end row -->
+
+			<!-- row -->
+			<div id="quicklinks_row" class="content-row padding-row">
+				<!-- row inner -->
+				<div class="content-row-inner">
+					<!-- content -->
+					<nav id="quicklinks_container" class="content-container quicklinks" aria-labelledby="quicklinks_header">
+						<h2 class="hidden" id="quicklinks_header">Quicklinks</h2>
+						<ul class="items-list items-list__horizontal-full display-row display-wrap align-vertical__center">
+							<li class="qlink-item">
+								<a href="espacio-comunitario.html" class="c2 c-white">
+									<span class="first-line">Espacio</span>
+									<span class="second-line">Comunitario</span>
+								</a>
+							</li>
+							<li class="qlink-item">
+								<a href="espectro-visible.html" class="c3 c-white">
+									<span class="first-line">Espectro</span>
+									<span class="second-line">Visible</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<!-- end content -->
+				</div>
+				<!-- end row inner -->
+			</div>
+			<!-- end row -->
+		</div>
+	</main>
+
+	<footer id="footer_main" class="site-footer display-row align-horizontal__center align-vertical__center" aria-label="Footer Principal">
+		<div class="footer-inner">
+			<div class="footer-inner-top margin-row display-column align-horizontal__center">
+				<p class="copyright c-white">Portal Espectro &copy; 2019. Todos los derechos reservados</p>
+
+				<div class="chat-container">
+					<a href="" class="c-white">¿Necesitas Ayuda?</a>
+				</div>
+			</div>
+			<div class="footer-inner-bottom">
+				<!-- content -->
+				<nav id="links_container" class="content-container" aria-labelledby="links_footer">
+					<h2 class="hidden" id="links_footer">Footer Logos</h2>
+					<ul class="items-list items-list__horizontal display-wrap align-horizontal__center align-vertical__center">
+						<li class="qlink-item">
+							<a href="">
+								<img src="pics/Logo_Gobierno-de-Colombia.png" alt="Logo Gobierno de Colombia">
+							</a>
+						</li>
+						<li class="qlink-item">
+							<a href="">
+								<img src="pics/Logo_MINTIC.png" alt="Logo MINTIC">
+							</a>
+						</li>
+						<li class="qlink-item">
+							<a href="">
+								<img src="pics/Logo_ANE.png" alt="Logo ANE">
+							</a>
+						</li>
+						<li class="qlink-item">
+							<a href="">
+								<img src="pics/Logo_CNABF.png" alt="Logo CNABF">
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<!-- end content -->
+			</div>
+		</div>
+	</footer>
+	<script>
+		window.onload = init;
+		var topnavButton = document.getElementById('sitenav_main_mobile_toggle');
+		var topnavDisplay = document.getElementById('sitenav_main');
+
+		function init() {
+			topnavButton.onclick = toggleNav;
+		}
+
+		function toggleNav(){
+			topnavDisplay.classList.toggle("open");
+			topnavButton.classList.toggle("open");
+		}
+		function goBack() {
+		  	window.history.back();
+		}
+	</script>
+	<script
+		src="https://code.jquery.com/jquery-1.12.4.min.js"
+		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+		crossorigin="anonymous"></script>
+	<script src="js/jquery-accessibleMegaMenu.2.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			$(function() {
+				$('#sitenav_main').accessibleMegaMenu({
+					openOnMouseover: true
+				});
+			});
+		});
+	</script>
+	<script>
+		$('ul.tabs').each(function(){
+		    var $active, $content, $links = $(this).find('a');
+		    $active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+		    $active.addClass('active');
+
+		    $content = $($active[0].hash);
+
+		    $links.not($active).each(function () {
+	        $(this.hash).hide();
+	    });
+
+	    $(this).on('click', 'a', function(e){
+	        $active.removeClass('active');
+	        $content.hide();
+
+	        $active = $(this);
+	        $content = $(this.hash);
+
+	        $active.addClass('active');
+	        $content.show();
+
+	        e.preventDefault();
+	    });
+	});
+	</script>
+</body>
+</html>

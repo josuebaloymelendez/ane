@@ -1,15 +1,28 @@
 .btn {
 	display: block;
-	padding: 7px 20px;
-	border: 0;
-	border-radius: 20px;
-	font-weight: 900;
-	text-transform: uppercase;
+	max-width: 240px;
+	font-weight: 700;
+	text: {
+		decoration: none;
+		transform: uppercase;
+	}
 	cursor: pointer;
 	transition: all .3s ease-in-out;
-
+	
+	&-width {
+		margin: 0 10px;
+		max-width: 300px;
+		width: 100%;
+	}
 	&-default {
-		color: $primary-color;
+		padding: 7px 20px;
+		max-width: 100%;
+		border: 0;
+		border-radius: 20px;
+		font-weight: 900;
+	}
+	&-white {
+		color: $primary-color;		
 		background: linear-gradient(
 			to bottom, 
 			$c-white 0%,
@@ -24,5 +37,37 @@
                 $c-purple-dark 100%
             );
 		}
+	}
+	&-green {
+		color: $c-white;
+		background-color: $c-green;
+	}
+	&-red {
+		color: $c-white; 
+		background-color: $c-red;
+
+		@include hover-bg-color($c-grey, $c-white);
+	}
+	&-gradient__blue {
+		color: $c-white;
+		background: linear-gradient(
+	        to bottom, 
+	        $primary-color 0%,
+	        darken($primary-color, 20%) 100%
+	    );
+	    transition: none;
+
+	    @include hover {	   
+	    	color: $c-black; 	
+			background: {
+				image: none;
+				color: $c-white;
+			}
+	    }
+	}
+	&-close {
+		position: absolute;
+		top: 20px;
+		right: 20px;
 	}
 }

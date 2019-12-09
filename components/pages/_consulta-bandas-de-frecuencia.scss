@@ -1,4 +1,4 @@
-.page-espectro {
+.page-consulta-de-bandas-de-frecuencia {
 	background: {
 		color: $cat3-color;
 		image: url(pics/bg_espectro.jpg);
@@ -39,35 +39,10 @@
 		}
 	}
 }
-.modal-ciudadano-container {
-	.item { 
-		@include width-constrain(480px);
-	} 
-	.item-inner {
-		line-height: 1.7;  
-	}
-	.title {
-		text-transform: uppercase;
-	}
-	h3 {
-		margin: 0;
-		font-size: 1.5rem;
-	}
-	p {
-		margin: 0;
-		font-size: 1.125rem;
-		line-height: 1.5;
-	}
-	a {
-		margin-top: 20px;
-		font-weight: 700;
-		text-decoration: none;
 
-		@include hover-bg-color($c-white, $c-black);
-	}
+#consulta_bandas_container {
 	@include respond-to($vp-large) {
-		.item {
-			margin: 0;
-		}
+		margin: 0 auto;
+		width: 85%;
 	}
 }

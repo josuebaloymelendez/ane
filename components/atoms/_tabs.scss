@@ -1,0 +1,104 @@
+.tabs { 
+	@include stripped-list; 
+
+	&-top {
+		background-color: $c-white;
+
+		li {
+			margin: 15px;
+
+			a {
+				@include flex-all($justify: center, $align: center);
+				width: 288px;
+				height: 43px;
+				color: $c-white;
+				background-color: $c-grey;
+				border-radius: 10px;
+				text-decoration: none;
+				transition: background-color .3s ease-in-out;
+
+				@include hover-bg-color($cat3-color);
+
+				&.active { 
+					color: $color-over-cat3;
+					background-color: $cat3-color;
+
+					@include hover-bg-color(darken($cat3-color, 10%));
+				}
+			}
+		}
+	}
+}
+.tab {
+	&-content {
+		.items-list {
+			padding: 10px;
+			min-height: 216px;
+			height: 100%;
+			background-color: $c-grey;
+
+			li {
+				a {
+					@include flex-all($justify: center, $align: center);
+					@include scale-font($small-ratio: .5, $final-size: 1.75rem);
+					margin: 10px;
+					height: 82px;
+					color: $cat3-color;
+					background-color: $color-over-cat3;
+					border-radius: 10px;
+					text-decoration: none;
+					transition: background-color .3s ease-in-out;
+
+					@include hover-bg-color($cat3-color, $color-over-cat3);
+
+					&.active { 
+						color: $color-over-cat3;
+						background-color: $cat3-color;
+
+						@include hover-bg-color(darken($cat3-color, 10%));
+					}
+				}
+			}
+		}
+		@include respond-to($vp-mid) {
+			.items-list {
+				li {
+					a {
+						width: 350px;
+					}
+				}
+			}
+		}
+	}
+	&-panel {
+		margin-top: 20px;
+		padding: 25px;
+		color: $cat3-color;
+		background-color: $color-over-cat3;
+
+		@include respond-to($vp-mid) {
+			@include flexbox;
+			text-align: left;
+		}
+	}
+	&-column {
+		&:last-child {
+			padding: 0 20px;
+		}
+		.subtitle {
+			@include scale-font($small-ratio: .5, $final-size: 2.17rem);
+			margin: 0;
+		}
+		p {
+			margin-top: 0;
+		}
+		@include respond-to($vp-large) {
+			@include flex(1);
+
+			&:first-child {
+				@include flex(none);
+				width: 700px;
+			}
+		}
+	}
+}

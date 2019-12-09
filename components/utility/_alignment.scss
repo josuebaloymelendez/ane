@@ -9,6 +9,12 @@
 		&__right {
 			@include justify-content(flex-end);
 		}
+		&__sb {
+			@include justify-content(space-between);
+		}
+		&__sa {
+			@include justify-content(space-around);
+		}
 	}
 	&-vertical {
 		&__center {
@@ -20,9 +26,15 @@
 		&__right {
 			@include align-items(flex-end);
 		}
+		&__sb {
+			@include justify-content(space-between);
+		}
+		&__sa {
+			@include justify-content(space-around);
+		}
 	}
 	&-center {
-		text-align: center;
+		text-align: center !important;
 
 		&__block {
 			margin: {
@@ -32,14 +44,14 @@
 		}
 	}
 	&-left {
-		text-align: left;
+		text-align: left !important;
 
 		&__block {
 			margin-right: auto;
 		}
 	}
 	&-right {
-		text-align: right;
+		text-align: right !important;
 
 		&__block {
 			margin-left: auto;

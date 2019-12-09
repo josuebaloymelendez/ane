@@ -1,0 +1,115 @@
+.page-disponibilidad {
+	background: {
+		color: $cat3-color;
+		image: url(pics/bg_espectro.jpg);
+	}	
+	#categories_container {
+		.qlink-item {
+			&:first-child a:before {
+				background-image: url(pics/cat5-icon.png);
+			}
+			&:last-child a:before {
+				background-image: url(pics/cat6-icon.png);
+			}
+		}
+	}
+	#motto {
+		&_row {
+			@include respond-to($vp-large) {
+				position: absolute;
+				bottom: 170px;
+				left: 0;
+				right: 0;
+			}
+		} 
+		&_container {
+			@include scale-font($small-ratio: .75, $final-size: 1.73rem);
+			@include width-constrain(750px);
+			padding-bottom: 10px;
+			text-transform: uppercase;
+			letter-spacing: 2.24px; 
+			border-bottom: 1px dashed $c-white;
+		}
+	}
+	@include respond-to($vp-max) {			
+		.title-page__icon {
+			&:after {
+				background-image: url(pics/icon-espectro.png);
+			}
+		}
+	}
+}
+
+#disponibilidad_container {
+	@include respond-to($vp-large) {
+		margin: 0 auto;
+		width: 85%;
+	}
+}
+
+.filter {
+	@include flex-all($justify: space-around, $align: center);
+	padding: 30px 0;
+	background-color: $c-grey;
+
+	&-column {
+		&:last-child {
+			@include flex(none);
+			max-width: 300px;
+			width: 100%;
+
+			.btn {
+				width: 100%;
+				max-width: 100%;
+
+				@include hover-bg-color($c-white, $c-black);
+			}
+		}
+	}
+	&-item {
+		margin-left: 10px;
+	}
+	&-title {
+		font: {
+			size: 1.35rem;
+			family: $primary-font-bold;
+			weight: 700;
+		}
+	}
+}
+
+.custom-select-wrapper-inner {
+	padding: 0;
+
+	.custom-select-item {
+		margin: 0 10px;
+
+		.custom-select {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.tabs { 
+	&-top {
+		padding: 10px 0;
+
+		li {
+			margin: 10px;
+		}
+	}
+}
+
+.tab-column {
+	&:first-child {
+		.title {
+			color: $cat1-color;
+		}
+		.table-title {
+			background-color: $cat1-color;
+		}
+		.table {
+			color: $cat1-color;
+		}
+	}
+}

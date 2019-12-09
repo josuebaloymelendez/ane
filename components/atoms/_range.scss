@@ -1,0 +1,97 @@
+.range-slider {
+    margin: 0;
+}
+.range-slider {
+    width: 100%;
+}
+.range-slider__range {
+    -webkit-appearance: none;
+    width: calc(100% - 73px);
+    height: 10px;
+    border-radius: 30px;
+    background: linear-gradient(
+        to right, 
+        $c-green 0%,
+        $c-red 100%
+    );
+    outline: none;
+    padding: 0;
+    margin: 0;
+
+    // Range Handle
+    &::-webkit-slider-thumb {
+        position: relative;
+        z-index: 9;
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: $c-white;
+        cursor: pointer;
+        transition: background .15s ease-in-out;
+
+        &:hover {
+            background: $cat3-color;
+        }
+    }
+    &:active::-webkit-slider-thumb {
+        background: $c-white;
+        border-color: $c-white
+    }
+    &::-moz-range-thumb {
+        position: relative;
+        z-index: 9;
+        width: 15px;
+        height: 15px;
+        border: 0;
+        border-radius: 50%;
+        background-color: $c-white;    
+        border: 5px solid $cat3-color;
+        cursor: pointer;
+        transition: background .15s ease-in-out;
+    }
+    &:active::-moz-range-thumb {
+        background: $cat3-color;
+    }
+}
+.range-numbers {
+    @include flexbox;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    width: calc(100% - 73px);
+    color: $c-black;
+    font-size: .85rem;
+    transform: translateX(-50%);
+
+    .range-number {
+        @include flex(1);
+        display: block;
+        text-align: center;
+
+        @include mask {
+            z-index: 2;
+            top: calc(100% + 9px);
+            left: 50%;
+            width: 3px;
+            height: 10px;
+            background-color: $c-white;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+// Firefox Overrides
+::-moz-range-track {  
+    background: linear-gradient(
+        to right, 
+        $c-green 0%,
+        $c-red 100%
+      );
+    border: 0;
+}
+
+input::-moz-focus-inner,
+input::-moz-focus-outer { 
+    border: 0; 
+}

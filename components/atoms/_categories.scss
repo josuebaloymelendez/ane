@@ -233,4 +233,65 @@
 			}			
 		}
 	}
+
+	&_trabajo_container {
+		.qlink-item {
+			@include flex(1);
+			margin: 10px 0;
+			background-color: $c-white;
+
+			a {
+				@include flex-all($justify: space-between, $align: center);
+				color: $cat3-color;
+				padding: 20px; 
+				width: 100%;
+				height: 140px;
+				text-decoration: none;
+				transition: all .3s ease-in-out;
+
+				@include hover {
+					box-shadow: 0 0 30px rgba($c-white, .3);
+
+					.item-inner {
+						&:before {
+							width: 100px;
+						}
+					}
+				}
+			}
+			img {
+				@include flex(none);
+			}
+		} 
+		.item-inner {
+			@include mask {
+				top: calc(100% + 10px); 
+				left: 0px;
+				width: 0;
+				height: 1px;
+				background-color: $cat3-color;
+				transition: width .3s ease-in-out;
+			}
+			span {
+				display: block;
+			}
+			.first-line {
+				font: {
+					size: 2rem; 
+					family: $primary-font-black;
+					weight: 900;
+				}
+			}
+			.second-line {
+				padding-right: 30px;
+				font-size: 1.125rem;
+			}
+		}
+
+		@include respond-to($vp-mid) {
+			.qlink-item {
+				@include flex(0 1 calc(50% - 20px));
+			}
+		}
+	}
 }

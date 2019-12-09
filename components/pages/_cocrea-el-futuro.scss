@@ -19,3 +19,11 @@
 		}
 	} 
 }
+.custom-select-wrapper-inner {
+    padding: 20px;
+    
+    &-inner {
+        background-color: rgba($c-white, .15);
+        border-radius: 20px;
+    }
+}
