@@ -1,9 +1,9 @@
-.page-cnabf {
+.page-aplicaciones {
 	background: {
 		color: $cat3-color;
 		image: url(pics/bg_espectro.jpg);
 	}	
-	#cnabf_container {
+	#aplicaciones_container {
 		overflow-x: scroll;
 		width: 1618px;
 
@@ -14,24 +14,6 @@
 			&:last-child a:before {
 				background-image: url(pics/cat6-icon.png);
 			}
-		}
-	}
-	#motto {
-		&_row {
-			@include respond-to($vp-large) {
-				position: absolute;
-				bottom: 170px;
-				left: 0;
-				right: 0;
-			}
-		} 
-		&_container {
-			@include scale-font($small-ratio: .75, $final-size: 1.73rem);
-			@include width-constrain(750px);
-			padding-bottom: 10px;
-			text-transform: uppercase;
-			letter-spacing: 2.24px; 
-			border-bottom: 1px dashed $c-white;
 		}
 	}
 	.ui-rangeslider {
@@ -419,43 +401,140 @@
 				width: 500px;
 			}
 		}
+		&-summary {
+			padding: 20px 80px;
+			color: $primary-color;
+			background-color: $c-white;
+
+			&__title {
+				color: $cat3-color;
+			}
+			.items-list {
+				column-count: 3;
+
+				li {
+					@include flex-all($align: center);
+					margin: 3px 0;
+
+					.item-color {
+						margin-right: 5px;
+						width: 32px;
+						height: 27px;
+					}
+				}
+			}
+		}
+		&-links {
+			padding: 20px 0;
+
+			li {
+				@include flex-all($justify: center, $align: center);
+				width: 130px;
+				height: 50px;
+			}
+			li a {
+				@include flex-all($justify: center, $align: center);
+				width: 100%;
+				height: 100%;
+				color: $color-over-cat2;
+				background-color: $cat2-color;
+				text-decoration: none;
+				transition: background-color .3s ease-in-out;
+
+				@include hover-bg-color($c-black, $c-white);
+			}
+		}
 	}
 	.color {
 		&-bar {
 			&__green {
-				background-color: rgb(178,190,56);
+				background-color: rgb(61,207,115);
+			}
+			&__light-green {
+				background-color: rgb(188,219,111);
+			}
+			&__hard-green {
+				background-color: rgb(0,255,8);
+			}
+			&__dark-green {
+				background-color: rgb(119,93,16);
 			}
 			&__burgundy {
 				background-color: rgb(180,2,78);
 			}
+			&__brown {
+				background-color: rgb(182,87,0);
+			}
 			&__yellow {
-				background-color: rgb(231,166,34);
+				background-color: rgb(238,224,124);
 			}
 			&__orange {
-				background-color: rgb(220,100,24);
+				background-color: rgb(255,75,0);
+			}
+			&__orange2 {
+				background-color: rgb(255,108,0);
 			}
 			&__purple {
-				background-color: rgb(94,67,103);
+				background-color: rgb(136,25,139);
 			}
 			&__dark-purple { 
 				background-color: rgb(92,29,89);
 			}
+			&__light-purple { 
+				background-color: rgb(161,0,228);
+			}
 			&__pink {
-				background-color: rgb(194,43,110);
+				background-color: rgb(220,0,129);
+			}
+			&__light-pink {
+				background-color: rgb(255,220,255);
+			}
+			&__soft-pink {
+				background-color: rgb(215,151,152);
 			}
 			&__blue {
-				background-color: rgb(16,142,161);
+				background-color: rgb(74,200,211);
+			}
+			&__light-blue {
+				background-color: rgb(164,226,255);
 			}
 			&__dark-blue {
 				background-color: rgb(61,30,72);
 			}
+			&__hard-blue {
+				background-color: rgb(0,255,255);
+			}
+			&__red {
+				background-color: rgb(242,0,34);
+			}
+			&__grey{
+				background-color: rgb(142,142,142);
+			}
+			&__light-grey{
+				background-color: rgb(194,194,194);
+			}
+			&__black {
+				background-color: rgb(0,0,0);
+			}
+			&__white {
+				background-color: rgb(255,255,255);
+			}
+		}
+	}
+	.tabs {
+		&-top {
+			background-color: $cat3-color;
+
+			li a {
+				@include hover-bg-color($cat2-color, $color-over-cat2);
+			}
 		}
 	}
 	@include respond-to($vp-large) {
-		#cnabf_container {
+		#aplicaciones_container {
 			overflow: visible;
 			margin: 0 auto;
-			width: 85%;
+			width: 95%;
 		}
 	}
 	@include respond-to($vp-max) {			
@@ -463,6 +542,11 @@
 			&:after {
 				background-image: url(pics/icon-espectro.png);
 			}
+		}
+	} 
+	@include respond-to(1400px) {
+		#aplicaciones_container {
+			width: 85%;
 		}
 	}
 }

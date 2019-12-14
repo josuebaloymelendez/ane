@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Aplicaciones | Espectro</title>
+	<link rel="stylesheet" href="components/third-parts/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="stylesheet" href="main.css">
+</head>
+<body class="page page-aplicaciones line-vertical__decorative">
+	<header id="header_main" class="site-header padding-row display-row align-vertical__center" aria-label="Header Principal">
+		<!-- Logo Header -->
+		<div class="header-title">
+			<a href="index.html">Portal Espectro</a>
+			<button class="action-back c-white" onclick="goBack()">Atrás</button>
+		</div>
+		<!-- end Logo Header -->
+		
+		<!-- Menu -->
+		<nav id="sitenav_main" class="sitenav nav-group hamburger" aria-label="Menu Principal">
+			<button id="sitenav_main_mobile_toggle" class="nav-mobile-toggle accessible-megamenu-toggle animated">
+				<span class="nav-mobile-toggle-inner">
+					<span class="nav-mobile-text c-white">Menu</span>
+				</span>
+			</button>
+			<div class="nav-menu">
+				<div class="nav-menu-inner">
+					<ul class="items-list">
+						<li class="nav-item">
+							<a href="generalidades.html">
+								<span class="nav-item-inner">
+									<span class="first-line">Generalidades</span>
+									<span class="second-line">del espectro</span>
+								</span>
+							</a>
+							<div class="sub-nav">
+								<ul class="sub-nav-group">
+									<li class="flyout">
+										<ul class="flyout-group">
+											<li class="sub-nav-item">
+												<a href="mitos-y-verdades-del-espectro-radioelectrico.html">¿Qué es el espectro radioeléctrico?</a>
+											</li>
+											<li class="sub-nav-item">
+												<a href="mitos-y-verdades-del-espectro-radioelectrico.html">Mitos y verdades del espectro</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>					
+						</li>
+						<li class="nav-item">
+							<a href="espectro-visible.html">
+								<span class="nav-item-inner">
+									<span class="first-line">Espectro</span>
+									<span class="second-line">Visible</span>
+								</span>
+							</a>
+							<div class="sub-nav">
+								<ul class="sub-nav-group">
+									<li class="flyout">
+										<a href="trabajo-con-el-espectro.html" target="_blank">Trabajo con el espectro</a>
+										<ul class="flyout-group">
+											<li class="sub-nav-item">
+												<a href="cnabf-tecnico.html">CNABF Técnico</a>
+											</li>
+											<li class="sub-nav-item">
+												<a href="disponibilidad.html">Disponibilidad</a>
+											</li>
+											<li class="sub-nav-item">
+												<a href="aplicaciones.html">Aplicaciones</a>
+											</li>
+											<li class="sub-nav-item">
+												<a href="simulacion.html">Simulación</a>
+											</li>
+											<li class="sub-nav-item">
+												<a href="sirce.html">SIRCE</a>
+											</li>
+											<li class="sub-nav-item">
+												<a href="operacion.html">Operación</a>
+											</li>
+										</ul>
+									</li>
+
+									<li class="flyout">
+										<a href="espacio-ciudadano.html" target="_blank">Espacio Ciudadano</a>
+										<ul class="flyout-group">
+											<li class="sub-nav-item">
+												<a href="ciudadano.html">Ciudadano</a>
+											</li>
+											<li class="sub-nav-item">
+												<a href="el-espectro-y-tu-salud.html">El espectro y tu salud</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>					
+						</li>
+						<li class="nav-item">
+							<a href="espacio-comunitario.html">
+								<span class="nav-item-inner">
+									<span class="first-line">Espacio</span>
+									<span class="second-line">Comunitario</span>
+								</span>
+							</a>
+							<div class="sub-nav">
+								<ul class="sub-nav-group">
+									<li class="flyout">
+										<ul class="flyout-group">
+											<li class="sub-nav-item">
+												<a href="cocrea-el-futuro.html">Cocrea el futuro</a>
+											</li>
+											<li class="sub-nav-item">
+												<a href="casos-de-exito.html">Casos de éxito</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>					
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- end Menu -->
+	</header>
+
+	<main id="content_main" class="site-content display-column" aria-label="Contenido Principal" tabindex="-1">
+		<div class="content-grid">
+			<!-- page title -->
+			<h1 class="title title-subpage c-white padding-row align-center align-horizontal__center">
+				<span class="first-line">Espectro Visible</span>
+				<span class="second-line">Aplicaciones</span>
+			</h1>
+			<span class="description-text c-white align-center">En este espacio podrás consultar las aplicaciones y Disponibilidad del espectro por zona geografica y servicio</span>
+			<!-- end page title -->
+
+			<!-- row -->
+			<div id="aplicaciones_row" class="content-row content-top content-format c-white align-center padding-xlarge">
+				<!-- row inner -->
+				<div class="content-row-inner">
+					<!-- content -->
+					<section class="content-container aplicaciones-container" id="aplicaciones_container" aria-labelledby="aplicaciones_header">
+						<form class="content-form">
+							<h2 class="subtitle c-white align-center" id="aplicaciones_header">Banda</h2>	
+						    <div data-role="rangeslider">
+						    	<div class="range-numbers-holder">
+							        <div class="range-numbers range-numbers-top">
+										<span class="range-number">VLF</span>
+										<span class="range-number">LF</span>
+										<span class="range-number">MF</span>
+										<span class="range-number">HF</span>
+										<span class="range-number">VHF</span>
+										<span class="range-number">UHF</span>
+										<span class="range-number">SHF</span>
+										<span class="range-number">EHF</span>
+									</div>
+									<div class="range-numbers range-numbers-bottom">
+										<span class="range-number">3 khz</span>
+										<span class="range-number">30 khz</span>
+										<span class="range-number">300 khz</span>
+										<span class="range-number">3000 khz</span>
+										<span class="range-number">3 mhz</span>
+										<span class="range-number">300 mhz</span>
+										<span class="range-number">3000 mhz</span>
+										<span class="range-number">30 ghz</span>
+										<span class="range-number">300 ghz</span>
+									</div>
+								</div>
+						        <input type="range" name="range-1a" id="range-1a" min="0" max="10" value="3" class="ui-hidden-accessible">
+						        <input type="range" name="range-1b" id="range-1b" min="0" max="10" value="6" class="ui-hidden-accessible">
+						    </div>
+							<div class="filter-column1 display-row align-horizontal__center align-vertical__center">
+								<div class="filter-item display-row align-vertical__center">
+									<div class="custom-select-wrapper-inner">
+										<ul class="items-list display-row display-wrap align-horizontal__center align-vertical__center">
+											<li class="custom-select-item">
+									            <ul class="items-list custom-select">
+									                <li class="item">
+									                	<input type="number" class="form-input" value="3">
+									                	<a href="javascript:;" class="custom-select__trigger">
+									                		<span>kHz</span>
+										                    <div class="arrow"></div>
+										                </a>
+										                <ul class="items-list custom-options">
+										                    <li class="custom-option selected" data-value="mhz">
+										                    	<a href="">mHz</a>
+										                    </li>
+										                    <li class="custom-option" data-value="ghz">
+										                    	<a href="">gHz</a>
+										                    </li>
+										                </ul>	       
+									                </li>
+									            </ul>
+									        </li>
+									        <li><span class="filter-title">Rango de frecuencia</span></li>
+											<li class="custom-select-item">
+									            <ul class="items-list custom-select">
+									                <li class="item">
+									                	<a href="javascript:;" class="custom-select__trigger">
+									                		<span>kHz</span>
+										                    <div class="arrow"></div>
+										                </a>
+										                <ul class="items-list custom-options">
+										                    <li class="custom-option selected" data-value="mhz">
+										                    	<a href="">mHz</a>
+										                    </li>
+										                    <li class="custom-option" data-value="ghz">
+										                    	<a href="">gHz</a>
+										                    </li>
+										                </ul>            
+									                	<input type="number" class="form-input" value="300">	       
+									                </li>
+									            </ul>
+									        </li>
+									    </ul>
+									</div>
+								</div>
+							</div>											
+						</form>
+						<section class="content-container tabs-container consulta-bandas" id="disponibilidad_container" aria-labelledby="disponibilidad_header">
+							<h2 class="hidden" id="disponibilidad_header">Sector</h2>		
+							<div id="disponibilidad_tab_container" class="tabs-group">
+							    <ul class="items-list display-row display-wrap align-horizontal__center tabs tabs-top"> 
+								    <li><a href="#tab0">Aeronáutico</a></li>
+								    <li><a href="#tab1">Ciencia Espacial</a></li>
+								    <li><a href="#tab2">Marítimo</a></li>
+								    <li><a href="#tab3">Uso libre</a></li>
+								    <li><a href="#tab4">Radiodifusión</a></li>
+								    <li><a href="#tab5">Enlaces fijos</a></li>
+								    <li><a href="#tab6">Eventos</a></li>
+								    <li><a href="#tab7">Radio empresarial</a></li>
+								    <li><a href="#tab8">Público</a></li>
+								    <li><a href="#tab9">Emergentes</a></li>
+								</ul>
+							</div>
+						</section>
+						<div class="content-bar display-row">
+							<div class="content-bar__inner">
+								<ul class="items-list">
+									<li class="item">
+										<span class="item-bar__number">400.15 MHz - 401 MHz</span>
+										<div class="item-bar__holder color-bar__yellow">
+											<div class="item-bar__inner color-bar__dark-purple" style="width:0%;">
+												<span class="item-bar__text">Color Púrpura oscuro - Barra 1</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">401 MHz - 402 MHz</span>
+										<div class="item-bar__holder color-bar__yellow">
+											<div class="item-bar__inner color-bar__dark-purple" style="width:50%;">
+												<span class="item-bar__text">Color Púrpura oscuro - Barra 2</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:50%;">
+												<span class="item-bar__text">Color Amarillo - Barra 2</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">402 MHz - 403 MHz</span>
+										<div class="item-bar__holder color-bar__yellow">
+											<div class="item-bar__inner color-bar__dark-purple" style="width:50%;">
+												<span class="item-bar__text">Color Púrpura oscuro - Barra 3</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:50%;">
+												<span class="item-bar__text">Color Amarillo - Barra 3</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">403 MHz - 406 MHz</span>
+										<div class="item-bar__holder color-bar__yellow">
+											<div class="item-bar__inner color-bar__dark-purple" style="width:40%;">
+												<span class="item-bar__text">Color Púrpura oscuro - Barra 4</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:60%;">
+												<span class="item-bar__text">Color Amarillo - Barra 4</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">406 MHz - 406.1 MHz</span>
+										<div class="item-bar__holder color-bar__yellow">
+											<div class="item-bar__inner color-bar__yellow" style="width:20%;">
+												<span class="item-bar__text">Color Naranja - Barra 5</span>
+											</div>
+											<div class="item-bar__inner color-bar__blue" style="width:20%;">
+												<span class="item-bar__text">Color Azul - Barra 5</span>
+											</div>
+											<div class="item-bar__inner color-bar__orange" style="width:20%;">
+												<span class="item-bar__text">Color Naranja - Barra 5</span>
+											</div>
+											<div class="item-bar__inner color-bar__orange2" style="width:20%;">
+												<span class="item-bar__text">Color Naranja 2 - Barra 5</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-green" style="width:20%;">
+												<span class="item-bar__text">Color Verde Claro - Barra 5</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">406.1 MHz - 410 MHz</span>
+										<div class="item-bar__holder color-bar__green">
+											<div class="item-bar__inner color-bar__purple" style="width:33.3333%;">
+												<span class="item-bar__text">Color Púrpura - Barra 6</span>
+											</div>
+											<div class="item-bar__inner color-bar__pink" style="width:33.3333%;">
+												<span class="item-bar__text">Color Rosado - Barra 6</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:33.3333%;">
+												<span class="item-bar__text">Color Amarillo - Barra 6</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">410 MHz - 420 MHz</span>
+										<div class="item-bar__holder color-bar__yellow">
+											<div class="item-bar__inner color-bar__purple" style="width:15%;">
+												<span class="item-bar__text">Color Púrpura - Barra 7</span>
+											</div>
+											<div class="item-bar__inner color-bar__pink" style="width:15%;">
+												<span class="item-bar__text">Color Rosado - Barra 7</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:35%;">
+												<span class="item-bar__text">Color Amarillo - Barra 7</span>
+											</div>
+											<div class="item-bar__inner color-bar__soft-pink" style="width:35%;">
+												<span class="item-bar__text">Color Rosado claro - Barra 7</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">420 MHz -  430 MHz</span>
+										<div class="item-bar__holder color-bar__green">
+											<div class="item-bar__inner color-bar__light-grey" style="width:8%;">
+												<span class="item-bar__text">Color  - Barra 8</span>
+											</div>
+											<div class="item-bar__inner color-bar__black" style="width:12%;">
+												<span class="item-bar__text">Color  - Barra 8</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-green" style="width:12%;">
+												<span class="item-bar__text">Color Verde claro - Barra 8</span>
+											</div>
+											<div class="item-bar__inner color-bar__purple" style="width:5%;">
+												<span class="item-bar__text">Color Púrpura - Barra 8</span>
+											</div>
+											<div class="item-bar__inner color-bar__pink" style="width:5%;">
+												<span class="item-bar__text">Color Rosado - Barra 8</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:18%;">
+												<span class="item-bar__text">Color Amarillo - Barra 8</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:5%;">
+												<span class="item-bar__text">Color Gris - Barra 8</span>
+											</div>
+											<div class="item-bar__inner color-bar__green" style="width:5%;">
+												<span class="item-bar__text">Color Verde - Barra 8</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-grey" style="width:5%;">
+												<span class="item-bar__text">Color Gris claro - Barra 8</span>
+											</div>
+											<div class="item-bar__inner color-bar__soft-pink" style="width:17%;">
+												<span class="item-bar__text">Color Rosado claro - Barra 8</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:8%;">
+												<span class="item-bar__text">Color Gris - Barra 8</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">430 MHz - 432 MHz</span>
+										<div class="item-bar__holder color-bar__yellow">
+											<div class="item-bar__inner color-bar__dark-purple" style="width:16%;">
+												<span class="item-bar__text">Color Púrpura oscuro - Barra 9</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-green" style="width:16%;">
+												<span class="item-bar__text">Color Verde claro - Barra 9</span>
+											</div>
+											<div class="item-bar__inner color-bar__burgundy" style="width:16%;">
+												<span class="item-bar__text">Color Rojo vino - Barra 9</span>
+											</div>
+											<div class="item-bar__inner color-bar__black" style="width:12%;">
+												<span class="item-bar__text">Color Negro - Barra 9</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-green" style="width:12%;">
+												<span class="item-bar__text">Color Verde claro - Barra 9</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:14%;">
+												<span class="item-bar__text">Color Amarillo - Barra 9</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:16%;">
+												<span class="item-bar__text">Color Gris - Barra 9</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">432 MHz - 433.05 MHz</span>
+										<div class="item-bar__holder color-bar__green">
+											<div class="item-bar__inner color-bar__dark-purple" style="width:20%;">
+												<span class="item-bar__text">Color Púrpura oscuro - Barra 10</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-green" style="width:20%;">
+												<span class="item-bar__text">Color Verde claro - Barra 10</span>
+											</div>
+											<div class="item-bar__inner color-bar__burgundy" style="width:20%;">
+												<span class="item-bar__text">Color Vino tinto - Barra 10</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:20%;">
+												<span class="item-bar__text">Color Amarillo - Barra 10</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:20%;">
+												<span class="item-bar__text">Color Gris - Barra 10</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">433.05 MHz - 434.79 MHz</span>
+										<div class="item-bar__holder color-bar__green">
+											<div class="item-bar__inner color-bar__dark-purple" style="width:14.2857%;">
+												<span class="item-bar__text">Color Púrpura oscuro - Barra 11</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-green" style="width:14.2857%;">
+												<span class="item-bar__text">Color Verde claro - Barra 11</span>
+											</div>
+											<div class="item-bar__inner color-bar__burgundy" style="width:14.2857%;">
+												<span class="item-bar__text">Color Vino tinto - Barra 11</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:14.2857%;">
+												<span class="item-bar__text">Color Amarillo - Barra 11</span>
+											</div>
+											<div class="item-bar__inner color-bar__black" style="width:14.2857%;">
+												<span class="item-bar__text">Color Negro - Barra 11</span>
+											</div>
+											<div class="item-bar__inner color-bar__brown" style="width:14.2857%;">
+												<span class="item-bar__text">Color Marrón - Barra 11</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:14.2857%;">
+												<span class="item-bar__text">Color Gris - Barra 11</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">434.79 MHz - 438 MHz</span>
+										<div class="item-bar__holder color-bar__green">
+											<div class="item-bar__inner color-bar__dark-purple" style="width:20%;">
+												<span class="item-bar__text">Color Púrpura oscuro - Barra 12</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-green" style="width:20%;">
+												<span class="item-bar__text">Color Verde claro - Barra 12</span>
+											</div>
+											<div class="item-bar__inner color-bar__burgundy" style="width:20%;">
+												<span class="item-bar__text">Color Vino tinto - Barra 12</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:20%;">
+												<span class="item-bar__text">Color Amarillo - Barra 12</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:20%;">
+												<span class="item-bar__text">Color Gris - Barra 12</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">438 MHz - 440 MHz</span>
+										<div class="item-bar__holder color-bar__green">
+											<div class="item-bar__inner color-bar__dark-purple" style="width:20%;">
+												<span class="item-bar__text">Color Púrpura oscuro - Barra 13</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-green" style="width:20%;">
+												<span class="item-bar__text">Color Verde claro - Barra 13</span>
+											</div>
+											<div class="item-bar__inner color-bar__burgundy" style="width:20%;">
+												<span class="item-bar__text">Color Vino tinto - Barra 13</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:20%;">
+												<span class="item-bar__text">Color Amarillo - Barra 13</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:20%;">
+												<span class="item-bar__text">Color Gris - Barra 13</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">440 MHz - 450 MHz</span>
+										<div class="item-bar__holder color-bar__green">
+											<div class="item-bar__inner color-bar__light-grey" style="width:5%;">
+												<span class="item-bar__text">Color Gris claro - Barra 14</span>
+											</div>
+											<div class="item-bar__inner color-bar__black" style="width:10%;">
+												<span class="item-bar__text">Color Negro - Barra 14</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:7%;">
+												<span class="item-bar__text">Color Gris - Barra 14</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-green" style="width:8%;">
+												<span class="item-bar__text">Color Verde claro - Barra 14</span>
+											</div>
+											<div class="item-bar__inner color-bar__dark-green" style="width:15%;">
+												<span class="item-bar__text">Color Verde oscuro - Barra 14</span>
+											</div>
+											<div class="item-bar__inner color-bar__white" style="width:5%;">
+												<span class="item-bar__text">Color Blanco - Barra 14</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:15%;">
+												<span class="item-bar__text">Color Amarillo - Barra 14</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-purple" style="width:5%;">
+												<span class="item-bar__text">Color Púrpura claro - Barra 14</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:5%;">
+												<span class="item-bar__text">Color Gris - Barra 14</span>
+											</div>
+											<div class="item-bar__inner color-bar__green" style="width:5%;">
+												<span class="item-bar__text">Color Verde - Barra 14</span>
+											</div>
+											<div class="item-bar__inner color-bar__white" style="width:5%;">
+												<span class="item-bar__text">Color Blanco - Barra 14</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:15%;">
+												<span class="item-bar__text">Color Gris - Barra 14</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">450 MHz - 455 MHz</span>
+										<div class="item-bar__holder color-bar__green">
+											<div class="item-bar__inner color-bar__black" style="width:15%;">
+												<span class="item-bar__text">Color Negro - Barra 15</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-grey" style="width:10%;">
+												<span class="item-bar__text">Color Gris claro - Barra 15</span>
+											</div>
+											<div class="item-bar__inner color-bar__hard-green" style="width:7%;">
+												<span class="item-bar__text">Color Verde fuerte - Barra 15</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-green" style="width:12%;">
+												<span class="item-bar__text">Color Verde claro - Barra 15</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:28%;">
+												<span class="item-bar__text">Color Amarillo - Barra 15</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:28%;">
+												<span class="item-bar__text">Color Gris - Barra 15</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">455 MHz - 456 MHz</span>
+										<div class="item-bar__holder color-bar__green">
+											<div class="item-bar__inner color-bar__light-grey" style="width:10%;">
+												<span class="item-bar__text">Color Gris claro - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__black" style="width:10%;">
+												<span class="item-bar__text">Color Negro - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:3%;">
+												<span class="item-bar__text">Color Grey - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-green" style="width:7%;">
+												<span class="item-bar__text">Color Verde claro - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:20%;">
+												<span class="item-bar__text">Color Amarillo - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:10%;">
+												<span class="item-bar__text">Color Gris - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__green" style="width:10%;">
+												<span class="item-bar__text">Color Verde - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-grey" style="width:10%;">
+												<span class="item-bar__text">Color Gris claro - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:20%;">
+												<span class="item-bar__text">Color Gris - Barra 16</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">456 MHz - 459 MHz</span>
+										<div class="item-bar__holder color-bar__green">
+											<div class="item-bar__inner color-bar__soft-yellow" style="width:4%;">
+												<span class="item-bar__text">Color Amarillo medio - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-grey" style="width:4%;">
+												<span class="item-bar__text">Color Gris claro - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:4%;">
+												<span class="item-bar__text">Color Gris - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__hard-green" style="width:2%;">
+												<span class="item-bar__text">Color Verde fuerte - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-grey" style="width:6%;">
+												<span class="item-bar__text">Color Gris claro - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:14%;">
+												<span class="item-bar__text">Color Amarillo - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__black" style="width:9%;">
+												<span class="item-bar__text">Color Negro - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__blue" style="width:4%;">
+												<span class="item-bar__text">Color Azul - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-blue" style="width:7%;">
+												<span class="item-bar__text">Color Azul claro - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__black" style="width:2%;">
+												<span class="item-bar__text">Color Negro - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__brown" style="width:3%;">
+												<span class="item-bar__text">Color Marrón - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:4%;">
+												<span class="item-bar__text">Color Gris - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__green" style="width:4%;">
+												<span class="item-bar__text">Color Verde - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__white" style="width:4%;">
+												<span class="item-bar__text">Color Blanck - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:12%;">
+												<span class="item-bar__text">Color Gris - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__soft-purple" style="width:6%;">
+												<span class="item-bar__text">Color Púrpura claro - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__brown" style="width:6%;">
+												<span class="item-bar__text">Color Marrón - Barra 16</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-green" style="width:5%;">
+												<span class="item-bar__text">Color Verde claro - Barra 16</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">459 MHz - 460 MHz</span>
+										<div class="item-bar__holder color-bar__green">
+											<div class="item-bar__inner color-bar__black" style="width:15%;">
+												<span class="item-bar__text">Color Negro - Barra 17</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-grey" style="width:6%;">
+												<span class="item-bar__text">Color Gris claro - Barra 17</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:15%;">
+												<span class="item-bar__text">Color Gris - Barra 17</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-green" style="width:15%;">
+												<span class="item-bar__text">Color Verde claro - Barra 17</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:23%;">
+												<span class="item-bar__text">Color Amarillo - Barra 17</span>
+											</div>
+											<div class="item-bar__inner color-bar__green" style="width:3%;">
+												<span class="item-bar__text">Color Verde - Barra 17</span>
+											</div>
+											<div class="item-bar__inner color-bar__black" style="width:8%;">
+												<span class="item-bar__text">Color Negro - Barra 17</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:15%;">
+												<span class="item-bar__text">Color Gris - Barra 17</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">460 MHz - 470 MHz</span>
+										<div class="item-bar__holder color-bar__green">
+											<div class="item-bar__inner color-bar__soft-yellow" style="width:10%;">
+												<span class="item-bar__text">Color Amarilla medio - Barra 18</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-grey" style="width:7%;">
+												<span class="item-bar__text">Color Gris claro - Barra 18</span>
+											</div>
+											<div class="item-bar__inner color-bar__black" style="width:3%;">
+												<span class="item-bar__text">Color Negro - Barra 18</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:5%;">
+												<span class="item-bar__text">Color Gris - Barra 18</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-green" style="width:2%;">
+												<span class="item-bar__text">Color Verde fuerte - Barra 18</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-green" style="width:4%;">
+												<span class="item-bar__text">Color Verde claro - Barra 18</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:15%;">
+												<span class="item-bar__text">Color Amarillo - Barra 18</span>
+											</div>
+											<div class="item-bar__inner color-bar__blue" style="width:7%;">
+												<span class="item-bar__text">Color Azul - Barra 18</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:5%;">
+												<span class="item-bar__text">Color Gris - Barra 18</span>
+											</div>
+											<div class="item-bar__inner color-bar__green" style="width:5%;">
+												<span class="item-bar__text">Color Verde - Barra 18</span>
+											</div>
+											<div class="item-bar__inner color-bar__white" style="width:5%;">
+												<span class="item-bar__text">Color Blanco claro - Barra 18</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:15%;">
+												<span class="item-bar__text">Color Gris - Barra 18</span>
+											</div>
+											<div class="item-bar__inner color-bar__soft-purple" style="width:4%;">
+												<span class="item-bar__text">Color Púrpura claro - Barra 18</span>
+											</div>
+											<div class="item-bar__inner color-bar__brown" style="width:4%;">
+												<span class="item-bar__text">Color Marrón - Barra 18</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-green" style="width:9%;">
+												<span class="item-bar__text">Color Verde claro - Barra 18</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">470 MHz - 694 MHz</span>
+										<div class="item-bar__holder color-bar__green">
+											<div class="item-bar__inner color-bar__blue" style="width:10%;">
+												<span class="item-bar__text">Color Azul - Barra 19</span>
+											</div>
+											<div class="item-bar__inner color-bar__white" style="width:14%;">
+												<span class="item-bar__text">Color Blanco - Barra 19</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:32%;">
+												<span class="item-bar__text">Color Amarillo - Barra 19</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:12%;">
+												<span class="item-bar__text">Color Gris - Barra 19</span>
+											</div>
+											<div class="item-bar__inner color-bar__" style="width:12%;">
+												<span class="item-bar__text">Color  - Barra 19</span>
+											</div>
+											<div class="item-bar__inner color-bar__" style="width:12%;">
+												<span class="item-bar__text">Color  - Barra 19</span>
+											</div>
+											<div class="item-bar__inner color-bar__" style="width:8%;">
+												<span class="item-bar__text">Color  - Barra 19</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">694 MHz - 790 MHz</span>
+										<div class="item-bar__holder color-bar__orange">
+											<div class="item-bar__inner color-bar__light-grey" style="width:20%;">
+												<span class="item-bar__text">Color Gris claro - Barra 20</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:20%;">
+												<span class="item-bar__text">Color Amarillo - Barra 20</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:20%;">
+												<span class="item-bar__text">Color Gris - Barra 20</span>
+											</div>
+											<div class="item-bar__inner color-bar__green" style="width:20%;">
+												<span class="item-bar__text">Color Verde - Barra 20</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-grey" style="width:20%;">
+												<span class="item-bar__text">Color Gris claro - Barra 20</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">790 MHz - 862 MHz</span>
+										<div class="item-bar__holder color-bar__orange">
+											<div class="item-bar__inner color-bar__orange" style="width:15%;">
+												<span class="item-bar__text">Color Naranja claro - Barra 21</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:40%;">
+												<span class="item-bar__text">Color Amarillo - Barra 21</span>
+											</div>
+											<div class="item-bar__inner color-bar__blue" style="width:15%;">
+												<span class="item-bar__text">Color Azul - Barra 21</span>
+											</div>
+											<div class="item-bar__inner color-bar__orange2" style="width:15%;">
+												<span class="item-bar__text">Color Naranja - Barra 21</span>
+											</div>
+											<div class="item-bar__inner color-bar__soft-grey" style="width:15%;">
+												<span class="item-bar__text">Color Gris medio - Barra 21</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">862 MHz - 890 MHz</span>
+										<div class="item-bar__holder color-bar__orange">
+											<div class="item-bar__inner color-bar__blue" style="width:4%;">
+												<span class="item-bar__text">Color Azul - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:6%;">
+												<span class="item-bar__text">Color Gris - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:4%;">
+												<span class="item-bar__text">Color Amarillo - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-blue" style="width:6%;">
+												<span class="item-bar__text">Color Azul claro - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__white" style="width:6%;">
+												<span class="item-bar__text">Color Blanco - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__orange" style="width:6%;">
+												<span class="item-bar__text">Color Naranja - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:9%;">
+												<span class="item-bar__text">Color Amarillo - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__green" style="width:4%;">
+												<span class="item-bar__text">Color Verde - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-pink" style="width:2%;">
+												<span class="item-bar__text">Color Rosado claro - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__pink" style="width:3%;">
+												<span class="item-bar__text">Color Rosado - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-grey" style="width:6%;">
+												<span class="item-bar__text">Color Gris claro - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__brown" style="width:4%;">
+												<span class="item-bar__text">Color Marrón - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:3%;">
+												<span class="item-bar__text">Color Gris - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-pink" style="width:6%;">
+												<span class="item-bar__text">Color Rosado claro - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__blue" style="width:5%;">
+												<span class="item-bar__text">Color Azul - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__orange" style="width:5%;">
+												<span class="item-bar__text">Color Naranja - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-grey" style="width:5%;">
+												<span class="item-bar__text">Color Gris claro - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__hard-blue" style="width:7%;">
+												<span class="item-bar__text">Color Azul fuerte - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__blue" style="width:2%;">
+												<span class="item-bar__text">Color Azul - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-blue" style="width:2%;">
+												<span class="item-bar__text">Color Azul claro - Barra 22</span>
+											</div>
+											<div class="item-bar__inner color-bar__pink" style="width:5%;">
+												<span class="item-bar__text">Color  - Barra 22</span>
+											</div>
+										</div>
+									</li>
+									<li class="item">
+										<span class="item-bar__number">890 MHz - 942 MHz</span>
+										<div class="item-bar__holder color-bar__orange">
+											<div class="item-bar__inner color-bar__pink" style="width:4%;">
+												<span class="item-bar__text">Color Rosado - Barra 23</span>
+											</div>
+											<div class="item-bar__inner color-bar__grey" style="width:8%;">
+												<span class="item-bar__text">Color Gris - Barra 23</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-blue" style="width:8%;">
+												<span class="item-bar__text">Color Azul claro - Barra 23</span>
+											</div>
+											<div class="item-bar__inner color-bar__white" style="width:8%;">
+												<span class="item-bar__text">Color Blanco - Barra 23</span>
+											</div>
+											<div class="item-bar__inner color-bar__orange" style="width:8%;">
+												<span class="item-bar__text">Color Naranja - Barra 23</span>
+											</div>
+											<div class="item-bar__inner color-bar__yellow" style="width:18%;">
+												<span class="item-bar__text">Color Amarillo - Barra 23</span>
+											</div>
+											<div class="item-bar__inner color-bar__brown" style="width:6%;">
+												<span class="item-bar__text">Color Marrón - Barra 23</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-pink" style="width:8%;">
+												<span class="item-bar__text">Color Rosado claro - Barra 23</span>
+											</div>
+											<div class="item-bar__inner color-bar__blue" style="width:8%;">
+												<span class="item-bar__text">Color Blue - Barra 23</span>
+											</div>
+											<div class="item-bar__inner color-bar__orange" style="width:8%;">
+												<span class="item-bar__text">Color Orange - Barra 23</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-grey" style="width:8%;">
+												<span class="item-bar__text">Color Gris claro - Barra 23</span>
+											</div>
+											<div class="item-bar__inner color-bar__light-green" style="width:8%;">
+												<span class="item-bar__text">Color Verde claro - Barra 23</span>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div> 
+						<div class="content-summary">
+							<h3 class="content-summary__title align-center">Aplicaciones y Usos</h3>
+							<ul class="items-list">
+								<li>
+									<span class="item-color color-bar__yellow"></span>
+									Radar
+								</li>
+								<li>
+									<span class="item-color color-bar__dark-purple"></span>
+									Implantes médicos
+								</li>
+								<li>
+									<span class="item-color color-bar__blue"></span>
+									Radio marítimo
+								</li>
+								<li>
+									<span class="item-color color-bar__orange"></span>
+									Radio portátil marítimo
+								</li>
+								<li>
+									<span class="item-color color-bar__light-green"></span>
+									Radio Barco
+								</li>
+								<li>
+									<span class="item-color color-bar__purple"></span>
+									Converted Spectrum
+								</li>
+								<li>
+									<span class="item-color color-bar__pink"></span>
+									Militar
+								</li>
+								<li>
+									<span class="item-color color-bar__brown"></span>
+									Radioaficionado
+								</li>
+								<li>
+									<span class="item-color color-bar__grey"></span>
+									Control
+								</li>
+								<li>
+									<span class="item-color color-bar__black"></span>
+									Dispositivos Corto alcance
+								</li>
+								<li>
+									<span class="item-color color-bar__green"></span>
+									Eventos Especiales
+								</li>
+								<li>
+									<span class="item-color color-bar__light-blue"></span>
+									Redes inalámbricas públicas
+								</li>
+							</ul>
+						</div>
+						<div class="content-links">
+							<ul class="items-list display-row align-horizontal__right">
+								<li>Aplicaciones</li>
+								<li><a href="disponibilidad.html">Disponibilidad</a></li>
+							</ul>
+						</div>
+					</section>
+					<!-- <div class="content-modal">
+						<button class="btn-close btn-close__purple">Close</button>
+						<div class="content-modal__inner">
+							<h3 class="content-modal__title">CNABF</h3>
+							<div class="content-modal__types">
+								<span>Servicios</span>
+								<span>Fijo</span>
+							</div>
+							<div class="content-modal__summary align-left">
+								<h4>Notas</h4>
+								<p>CLM 5:</p>
+								<p>Se establecen dentro del territorio nacional las bandas de frecuencia de libre utilización definidas en la resolución 711 de 2016, expedida por la Agencia Nacional del Espectro, así como las aplicaciones permitidas, parámetros técnicos, modos de operación, bandas restringidas, límites generales para radiadores intencionales, excepciones a los límites generales y condiciones técnicas y operativas de aplicaciones específicas que por su naturaleza, requieren condiciones especiales de operación. Se modifica la Resolución 711 de 2016, para establecer las condiciones de uso de los dispositivos de espacios en blanco, mediante la Resolución 461 de 2017. (40A) (40B)</p>
+								<div class="content-modal__summary-footer">
+									<h4>Aplicaciones</h4>
+									<p>
+										<sub>Frecuencia: 39.5 - 39.986 mhz</sub>
+									</p>
+									<p>
+										<sub>Usos: </sub>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="content-modal__footer">
+							<a href="disponibilidad.html"><em>Ver disponibilidad</em></a>
+						</div>
+					</div> -->
+					<!-- <div class="content-modal2">
+						<p>Cuadro</p>
+						<h4 class="content-modal2__title align-center">Cuadro nacional de atribución de bandas de frecuencia</h4>
+						<table class="table">
+							<tr class="table-title">
+								<th>Unidad</th>
+								<th>Colombia</th>
+								<th>Notas Nacionales</th>
+							</tr>
+							<tr>
+								<td>
+									<p>kHz</p>
+								</td>
+								<td>
+									<p>14.00 - 19.95</p>
+									<p>Fijo</p>
+									<p>Móvil marítimo 5.57</p>
+									<p>5.55, 5.56</p>
+								</td>
+								<td>
+									<p>CLM 3</p>
+									<p>CLM 5</p>
+								</td>
+							</tr>
+						</table>
+					</div> -->
+					<!-- end content -->
+				</div>
+				<!-- end row inner -->
+			</div>
+			<!-- end row -->
+
+			<script type="text/javascript">  
+				$("input[type="range"]").popup(); 
+			</script>
+
+			<!-- row -->
+			<div id="quicklinks_row" class="content-row padding-row">
+				<!-- row inner -->
+				<div class="content-row-inner">
+					<!-- content -->
+					<nav id="quicklinks_container" class="content-container quicklinks" aria-labelledby="quicklinks_header">
+						<h2 class="hidden" id="quicklinks_header">Quicklinks</h2>
+						<ul class="items-list items-list__horizontal-full display-row display-wrap align-vertical__center">
+							<li class="qlink-item">
+								<a href="espacio-comunitario.html" class="c2 c-white">
+									<span class="first-line">Espacio</span>
+									<span class="second-line">Comunitario</span>
+								</a>
+							</li>
+							<li class="qlink-item">
+								<a href="espectro-visible.html" class="c3 c-white">
+									<span class="first-line">Espectro</span>
+									<span class="second-line">Visible</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<!-- end content -->
+				</div>
+				<!-- end row inner -->
+			</div>
+			<!-- end row -->
+		</div>
+	</main>
+
+	<footer id="footer_main" class="site-footer display-row align-horizontal__center align-vertical__center" aria-label="Footer Principal">
+		<div class="footer-inner">
+			<div class="footer-inner-top margin-row display-column align-horizontal__center">
+				<p class="copyright c-white">Portal Espectro &copy; 2019. Todos los derechos reservados</p>
+
+				<div class="chat-container">
+					<a href="" class="c-white">¿Necesitas Ayuda?</a>
+				</div>
+			</div>
+			<div class="footer-inner-bottom">
+				<!-- content -->
+				<nav id="links_container" class="content-container" aria-labelledby="links_footer">
+					<h2 class="hidden" id="links_footer">Footer Logos</h2>
+					<ul class="items-list items-list__horizontal display-wrap align-horizontal__center align-vertical__center">
+						<li class="qlink-item">
+							<a href="">
+								<img src="pics/Logo_Gobierno-de-Colombia.png" alt="Logo Gobierno de Colombia">
+							</a>
+						</li>
+						<li class="qlink-item">
+							<a href="">
+								<img src="pics/Logo_MINTIC.png" alt="Logo MINTIC">
+							</a>
+						</li>
+						<li class="qlink-item">
+							<a href="">
+								<img src="pics/Logo_ANE.png" alt="Logo ANE">
+							</a>
+						</li>
+						<li class="qlink-item">
+							<a href="">
+								<img src="pics/Logo_CNABF.png" alt="Logo CNABF">
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<!-- end content -->
+			</div>
+		</div>
+	</footer>
+	<script>
+		window.onload = init;
+		var topnavButton = document.getElementById('sitenav_main_mobile_toggle');
+		var topnavDisplay = document.getElementById('sitenav_main');
+
+		function init() {
+			topnavButton.onclick = toggleNav;
+		}
+
+		function toggleNav(){
+			topnavDisplay.classList.toggle("open");
+			topnavButton.classList.toggle("open");
+		}
+		function goBack() {
+		  	window.history.back();
+		}
+	</script>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/jquery-accessibleMegaMenu.2.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			$(function() {
+				$('#sitenav_main').accessibleMegaMenu({
+					openOnMouseover: true
+				});
+			});
+		});
+	</script>
+	<script src="js/main.js"></script>
+</body>
+</html>
