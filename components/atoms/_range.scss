@@ -1,8 +1,21 @@
 .range-slider {
-    margin: 0;
-}
-.range-slider {
     width: 100%;
+    margin: 0;
+
+    // Firefox Overrides
+    ::-moz-range-track {  
+        background: linear-gradient(
+            to right, 
+            $c-green 0%,
+            $c-red 100%
+          );
+        border: 0;
+    }
+
+    input::-moz-focus-inner,
+    input::-moz-focus-outer { 
+        border: 0; 
+    }
 }
 .range-slider__range {
     -webkit-appearance: none;
@@ -79,19 +92,4 @@
             transform: translateX(-50%);
         }
     }
-}
-
-// Firefox Overrides
-::-moz-range-track {  
-    background: linear-gradient(
-        to right, 
-        $c-green 0%,
-        $c-red 100%
-      );
-    border: 0;
-}
-
-input::-moz-focus-inner,
-input::-moz-focus-outer { 
-    border: 0; 
 }

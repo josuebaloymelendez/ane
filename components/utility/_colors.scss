@@ -9,3 +9,32 @@
 		color: $cat3-color;
 	}
 }
+
+.color {
+	&-bar {
+		&__green {
+			background-color: rgb(178,190,56);
+		}
+		&__burgundy {
+			background-color: rgb(180,2,78);
+		}
+		&__yellow {
+			background-color: rgb(231,166,34);
+		}
+		&__orange {
+			background-color: rgb(220,100,24);
+		}
+		&__purple {
+			background-color: rgb(94,67,103);
+		}
+		&__pink {
+			background-color: rgb(194,43,110);
+		}
+		&__blue {
+			background-color: rgb(16,142,161);
+		}
+		&__dark-blue {
+			background-color: rgb(61,30,72);
+		}
+	}
+}

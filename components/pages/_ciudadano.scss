@@ -1,0 +1,45 @@
+.page-ciudadano {
+	background: {
+		color: $cat3-color;
+		image: url(pics/bg_espectro.jpg);
+	}
+	.ciudadano-container {
+		.item { 
+			@include width-constrain(480px);
+		} 
+		.item-inner {
+			line-height: 1.7;  
+		}
+		.title {
+			text-transform: uppercase;
+		}
+		h3 {
+			margin: 0;
+			font-size: 1.5rem;
+		}
+		p {
+			margin: 0;
+			font-size: 1.125rem;
+			line-height: 1.5;
+		}
+		a {
+			margin-top: 20px;
+			font-weight: 700;
+			text-decoration: none;
+
+			@include hover-bg-color($c-white, $c-black);
+		}
+	}
+	@include respond-to($vp-max) {			
+		.title-page__icon {
+			&:after {
+				background-image: url(pics/icon-espectro.png);
+			}
+		}
+		.ciudadano-container {
+			.item {
+				margin: 0;
+			}
+		}
+	}
+}

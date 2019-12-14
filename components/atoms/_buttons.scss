@@ -66,8 +66,25 @@
 	    }
 	}
 	&-close {
+		display: block;
 		position: absolute;
 		top: 20px;
 		right: 20px;
+		margin: 0;
+		background-color: transparent;
+		border: 0;
+		box-shadow: none !important;
+		cursor: pointer;
+
+		&__white {
+			@include image-replace($image: "pics/close-white.png");
+			width: 28px !important;
+			height: 28px; 
+		}
+		&__purple {
+			@include image-replace($image: "pics/close-purple.png");
+			width: 28px !important;
+			height: 28px;
+		}
 	}
 }

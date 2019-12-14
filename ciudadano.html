@@ -3,11 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Espectro Visible</title>
+	<title>Ciudadano | Espectro Visible</title>
 	<link rel="stylesheet" href="components/third-parts/jquery.mobile.structure-1.4.5.min.css">
 	<link rel="stylesheet" href="main.css">
 </head>
-<body class="page page-espectro line-vertical__decorative">
+<body class="page page-ciudadano line-vertical__decorative">
 	<header id="header_main" class="site-header padding-row display-row align-vertical__center" aria-label="Header Principal">
 		<!-- Logo Header -->
 		<div class="header-title">
@@ -127,35 +127,33 @@
 	<main id="content_main" class="site-content display-column align-horizontal__center" aria-label="Contenido Principal" tabindex="-1">
 		<div class="content-grid">
 			<!-- page title -->
-			<h1 class="title title-page title-page__icon c-white padding-row align-center align-horizontal__center">
-				<span class="first-line">Espectro</span>
-				<span class="second-line">Visible</span>
+			<h1 class="title title-subpage c-white padding-row align-center align-horizontal__center">
+				<span class="first-line">Espectro Visible</span>
+				<span class="second-line">Ciudadano</span>
 			</h1>
 			<!-- end page title -->
 
-			<!-- row -->
-			<div id="categories_row" class="content-row">
+			<!-- Modal row -->
+			<div id="ciudadano_row" class="content-row width-constrain-row display-row align-vertical__center padding-middle">
 				<!-- row inner -->
 				<div class="content-row-inner">
 					<!-- content -->
-					<nav id="categories_container" class="content-container categories" aria-labelledby="categories_header">
-						<h2 class="hidden" id="categories_header">Categorias</h2>
-						<ul class="items-list items-list__horizontal-full display-row display-wrap align-vertical__center">
-							<li class="qlink-item">
-								<a href="ciudadano.html" class="c1 c-white align-right">
-									<span class="item-inner">
-										<span class="first-line">Ciudadano</span>
-										<span class="second-line">Más información</span>
-									</span>
-								</a>
+					<nav id="ciudadano_container" class="content-container ciudadano-container c-white" aria-labelledby="ciudadano_header">
+						<h2 class="title title-mega align-center" id="ciudadano_header">CNABF Ciudadano</h2>
+						<ul class="items-list display-row display-wrap align-horizontal__center align-horizontal__sa align-center">
+							<li class="item padding-middle">
+								<span class="item-inner">
+									<h3 class="subtitle">Consulta bandas de frecuencia</h3>
+									<p>Si eres un usuario de dispositivos que usan el campo radioeléctrico te recomendamos revisar el siguiente cuadro para verificar que hagas un buen uso del espectro.</p>
+									<a href="consulta-bandas-de-frecuencia.html" class="btn btn-green align-center__block border-radius__10">Más información</a>
+								</span>
 							</li>
-							<li class="qlink-item">
-								<a href="trabajo-con-el-espectro.html" class="c2 c-white align-left">
-									<span class="item-inner">
-										<span class="first-line">Trabajo con el espectro</span>
-										<span class="second-line">Más información</span>
-									</span>
-								</a>
+							<li class="item padding-middle">
+								<span class="item-inner">
+									<h3 class="subtitle">El espectro y tu salud</h3>
+									<p>El campo electromagnético puede afectar tu salud y por eso una de nuestras responsabilidades es cuidar de ti en este aspecto.</p>
+									<a href="el-espectro-y-tu-salud.html" class="btn btn-green align-center__block border-radius__10">Más información</a>
+								</span>
 							</li>
 						</ul>
 					</nav>
@@ -163,7 +161,7 @@
 				</div>
 				<!-- end row inner -->
 			</div>
-			<!-- end row -->
+			<!-- end Modal row -->
 			
 			<!-- row -->
 			<div id="motto_row" class="content-row padding-row">
