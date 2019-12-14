@@ -1,0 +1,174 @@
+.page-operacion {
+	background: {
+		color: $cat3-color;
+		image: url(pics/bg_espectro.jpg);
+	}	
+	#espectro_salud_row {
+		.espectro-salud {
+			position: relative;
+			z-index: 2;
+			color: $cat3-color;
+			background-color: $c-white;
+			box-shadow: 0 0 50px rgba($c-black, .45);
+		}
+		.title {
+			margin: 0;
+			padding: 20px;
+			color: $color-over-cat3;
+			background-color: $cat3-color;
+			font: {
+				size: 1.7rem; 
+				family: $primary-font-black;
+				weight: 900;
+			}
+			text-transform: capitalize;
+		}
+		.subtitle {		
+			font-size: 2rem;
+		}
+		.item-summary {
+			padding: 20px;
+			line-height: 1.5;
+		}
+		li {
+			@include flex-all($align: center);
+
+			&:before {
+				content: "";
+				margin-right: 5px;
+				width: 5px;
+				height: 5px;
+				background-color: $cat3-color;
+				border-radius: 50%;
+			} 
+		}
+		.range-slider {
+			@include flex-all($justify: center, $align: center);
+			position: absolute;
+			z-index: 2;
+			bottom: 50px;
+			left: 50%;
+			height: 80px;
+			background-color: $c-white;
+			border-radius: 50px;
+			transform: translateX(-50%);
+
+			&:before {
+				@include flex-all($justify: center, $align: center);
+				content: "Estado";
+				position: absolute;
+				bottom: 100%;
+				left: 50%;
+				width: 130px;
+				height: 25px;
+				color: $cat3-color;
+				background-color: $c-white;
+				border-radius: 10px 10px 0 0;
+				font: {
+					size: .85rem;
+					family: $primary-font-bold;
+					weight: 700;
+				}
+				transform: translateX(-50%);
+			}
+			&:after {
+				content: "Máximo permitido por UIT 100";
+				position: absolute;
+				bottom: 5px;
+				right: 40px;
+				color: $c-black;
+				font-size: .85rem;
+			}
+		}
+		.maps-container {
+			@include flex(1);
+			position: relative;
+			width: 100%;
+		}
+		iframe {
+			width: 100%;
+			height: 400px;
+		}
+		.map-details {
+			@include flexbox;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			max-width: 450px;
+			width: 100%;
+			color: $c-black;
+			background-color: $c-white;
+			border-radius: 20px;
+			font-size: .85rem;
+			text-align: left;
+			overflow: hidden;
+			transform: translate(-50%, -50%);
+
+			.btn-close {
+				@include image-replace(16px, 16px, "pics/close.png");
+				display: block; 
+				top: 10px;
+				right: 10px;
+				border: 0;
+				background-color: transparent;
+			}		
+			.item {
+				&-summary {
+					@include flex-all($direction: column, $justify: space-around, $align: flex-start);
+					padding: 10px;
+					line-height: 2;
+				}
+				&-title {
+					margin-bottom: 10px;
+				}
+			}
+			span {
+				display: block;
+			}
+			img {
+				@include flex(none);
+				display: block;
+				width: 145px;
+				height: 185px;
+				object-fit: cover;
+			}
+			a {
+				display: inline-block;
+				margin-top: 10px;
+				padding: 5px 10px;
+				color: $color-over-cat3;
+				background-color: $cat3-color;
+				border-radius: 5px;
+				text-decoration: none;
+
+				@include hover-bg-color($c-black, $c-white);
+			}
+		}
+	}
+	@include respond-to($vp-large) {
+		#espectro_salud_row {
+			.content-row-inner {
+				@include flexbox;
+			}
+			.content-container {
+				@include flex(none);
+				width: 420px;
+				height: 800px;
+				overflow-y: auto;
+			}
+			iframe {
+				height: 800px;
+			}
+			.range-slider {
+				width: 600px;
+			}
+		}
+	}
+	@include respond-to($vp-max) {			
+		.title-page__icon {
+			&:after {
+				background-image: url(pics/icon-espectro.png);
+			}
+		}
+	}
+}

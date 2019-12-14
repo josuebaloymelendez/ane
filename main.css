@@ -3402,3 +3402,208 @@ figure {
   @media screen and (min-width: 1350px) {
     .page-cnabf .title-page__icon:after {
       background-image: url(pics/icon-espectro.png); } }
+
+.page-operacion {
+  background-color: #492e7f;
+  background-image: url(pics/bg_espectro.jpg); }
+  .page-operacion #espectro_salud_row .espectro-salud {
+    position: relative;
+    z-index: 2;
+    color: #492e7f;
+    background-color: white;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.45); }
+  .page-operacion #espectro_salud_row .title {
+    margin: 0;
+    padding: 20px;
+    color: white;
+    background-color: #492e7f;
+    font-size: 1.7rem;
+    font-family: "Myriad Pro Black", sans-serif;
+    font-weight: 900;
+    text-transform: capitalize; }
+  .page-operacion #espectro_salud_row .subtitle {
+    font-size: 2rem; }
+  .page-operacion #espectro_salud_row .item-summary {
+    padding: 20px;
+    line-height: 1.5; }
+  .page-operacion #espectro_salud_row li {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center; }
+    .page-operacion #espectro_salud_row li:before {
+      content: "";
+      margin-right: 5px;
+      width: 5px;
+      height: 5px;
+      background-color: #492e7f;
+      border-radius: 50%; }
+  .page-operacion #espectro_salud_row .range-slider {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+    bottom: 50px;
+    left: 50%;
+    height: 80px;
+    background-color: white;
+    border-radius: 50px;
+    transform: translateX(-50%); }
+    .page-operacion #espectro_salud_row .range-slider:before {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      content: "Estado";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      width: 130px;
+      height: 25px;
+      color: #492e7f;
+      background-color: white;
+      border-radius: 10px 10px 0 0;
+      font-size: .85rem;
+      font-family: "Myriad Pro Bold", sans-serif;
+      font-weight: 700;
+      transform: translateX(-50%); }
+    .page-operacion #espectro_salud_row .range-slider:after {
+      content: "Máximo permitido por UIT 100";
+      position: absolute;
+      bottom: 5px;
+      right: 40px;
+      color: black;
+      font-size: .85rem; }
+  .page-operacion #espectro_salud_row .maps-container {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    position: relative;
+    width: 100%; }
+  .page-operacion #espectro_salud_row iframe {
+    width: 100%;
+    height: 400px; }
+  .page-operacion #espectro_salud_row .map-details {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 450px;
+    width: 100%;
+    color: black;
+    background-color: white;
+    border-radius: 20px;
+    font-size: .85rem;
+    text-align: left;
+    overflow: hidden;
+    transform: translate(-50%, -50%); }
+    .page-operacion #espectro_salud_row .map-details .btn-close {
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      display: block;
+      overflow: hidden;
+      height: 16px;
+      width: 16px;
+      max-width: 100%;
+      white-space: nowrap;
+      text-indent: 200%;
+      color: transparent;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-image: url("pics/close.png");
+      display: block;
+      top: 10px;
+      right: 10px;
+      border: 0;
+      background-color: transparent; }
+    .page-operacion #espectro_salud_row .map-details .item-summary {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: vertical;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -ms-flex-pack: distribute;
+      -webkit-justify-content: space-around;
+      justify-content: space-around;
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      -webkit-align-items: flex-start;
+      align-items: flex-start;
+      padding: 10px;
+      line-height: 2; }
+    .page-operacion #espectro_salud_row .map-details .item-title {
+      margin-bottom: 10px; }
+    .page-operacion #espectro_salud_row .map-details span {
+      display: block; }
+    .page-operacion #espectro_salud_row .map-details img {
+      -webkit-box-flex: none;
+      -webkit-flex: none;
+      -ms-flex: none;
+      flex: none;
+      display: block;
+      width: 145px;
+      height: 185px;
+      object-fit: cover; }
+    .page-operacion #espectro_salud_row .map-details a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 10px;
+      color: white;
+      background-color: #492e7f;
+      border-radius: 5px;
+      text-decoration: none; }
+      .page-operacion #espectro_salud_row .map-details a:hover, .page-operacion #espectro_salud_row .map-details a:focus {
+        background-color: black;
+        color: white; }
+  @media screen and (min-width: 1024px) {
+    .page-operacion #espectro_salud_row .content-row-inner {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; }
+    .page-operacion #espectro_salud_row .content-container {
+      -webkit-box-flex: none;
+      -webkit-flex: none;
+      -ms-flex: none;
+      flex: none;
+      width: 420px;
+      height: 800px;
+      overflow-y: auto; }
+    .page-operacion #espectro_salud_row iframe {
+      height: 800px; }
+    .page-operacion #espectro_salud_row .range-slider {
+      width: 600px; } }
+  @media screen and (min-width: 1350px) {
+    .page-operacion .title-page__icon:after {
+      background-image: url(pics/icon-espectro.png); } }
