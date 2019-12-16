@@ -37,10 +37,10 @@
 									<li class="flyout">
 										<ul class="flyout-group">
 											<li class="sub-nav-item">
-												<a href="mitos-y-verdades-del-espectro-radioelectrico.html">¿Qué es el espectro radioeléctrico?</a>
+												<a href="que-es-el-espectro-radioelectrico.html">¿Qué es el espectro radioeléctrico?</a>
 											</li>
 											<li class="sub-nav-item">
-												<a href="mitos-y-verdades-del-espectro.html">Mitos y verdades del espectro</a>
+												<a href="mitos-y-verdades-del-espectro-radioelectrico.html">Mitos y verdades del espectro</a>
 											</li>
 										</ul>
 									</li>
@@ -162,7 +162,7 @@
 								<img class="news-item-image" src="pics/caso1.jpg" alt="Caso 1">
 							</div>
 							<div class="item-summary">
-								<h3 id="news_item_1_header" class="item-name"><a href="">La Agencia Nacional del Espectro avanza en las consultas sobre uso del espectro libre.</a></h3>
+								<h3 id="news_item_1_header" class="item-name"><a href="" class="popup-trigger" data-popup-trigger="modal1">La Agencia Nacional del Espectro avanza en las consultas sobre uso del espectro libre.</a></h3>
 							</div>
 						</article>
 
@@ -189,6 +189,20 @@
 				<!-- end row inner -->
 			</div>
 			<!-- end row -->
+
+			<!-- Modal -->
+			<div class="popup-modal display-column align-center align-horizontal__center align-vertical__center" data-popup-modal="modal1">
+				<button class="btn-close btn-close__white popup-modal__close">Close</button>
+
+				<div class="news-content__modal"> 
+					<div class="news-content__modal-inner display-column c-white">
+						<h3 class="title">La Agencia Nacional del Espectro avanza en las consultas sobre uso del espectro libre.</h3>
+						<img src="pics/caso1.jpg" alt="News imagen principal">
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quam rerum saepe perspiciatis dolorem hic eligendi possimus, rem quasi qui expedita iste nam nemo aspernatur, eius ipsa iusto delectus voluptatum! </p>
+					</div>
+				</div>
+			</div>
+			<!-- end Modal -->
 
 			<!-- row -->
 			<div id="quicklinks_row" class="content-row padding-row">
@@ -260,32 +274,8 @@
 			</div>
 		</div>
 	</footer>
-	<script>
-		window.onload = init;
-		var topnavButton = document.getElementById('sitenav_main_mobile_toggle');
-		var topnavDisplay = document.getElementById('sitenav_main');
-
-		function init() {
-			topnavButton.onclick = toggleNav;
-		}
-
-		function toggleNav(){
-			topnavDisplay.classList.toggle("open");
-			topnavButton.classList.toggle("open");
-		}
-		function goBack() {
-		  	window.history.back();
-		}
-	</script>
+	<script src="js/jquery-1.12.4.min.js"></script>	
 	<script src="js/jquery-accessibleMegaMenu.2.js"></script>
-	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			$(function() {
-				$('#sitenav_main').accessibleMegaMenu({
-					openOnMouseover: true
-				});
-			});
-		});
-	</script>
+	<script src="js/main.js"></script>
 </body>
 </html>

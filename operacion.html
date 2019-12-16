@@ -251,62 +251,8 @@
 			</div>
 		</div>
 	</footer>
-	<script>
-		window.onload = init;
-		var topnavButton = document.getElementById('sitenav_main_mobile_toggle');
-		var topnavDisplay = document.getElementById('sitenav_main');
-
-		function init() {
-			topnavButton.onclick = toggleNav;
-		}
-
-		function toggleNav(){
-			topnavDisplay.classList.toggle("open");
-			topnavButton.classList.toggle("open");
-		}
-		function goBack() {
-		  	window.history.back();
-		}
-	</script>
-	<script
-		src="https://code.jquery.com/jquery-1.12.4.min.js"
-		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-		crossorigin="anonymous"></script>
+	<script src="js/jquery-1.12.4.min.js"></script>	
 	<script src="js/jquery-accessibleMegaMenu.2.js"></script>
-	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			$(function() {
-				$('#sitenav_main').accessibleMegaMenu({
-					openOnMouseover: true
-				});
-			});
-		});
-	</script>
-	<script>
-		$('ul.tabs').each(function(){
-		    var $active, $content, $links = $(this).find('a');
-		    $active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
-		    $active.addClass('active');
-
-		    $content = $($active[0].hash);
-
-		    $links.not($active).each(function () {
-	        $(this.hash).hide();
-	    });
-
-	    $(this).on('click', 'a', function(e){
-	        $active.removeClass('active');
-	        $content.hide();
-
-	        $active = $(this);
-	        $content = $(this.hash);
-
-	        $active.addClass('active');
-	        $content.show();
-
-	        e.preventDefault();
-	    });
-	});
-	</script>
+	<script src="js/main.js"></script>
 </body>
 </html>

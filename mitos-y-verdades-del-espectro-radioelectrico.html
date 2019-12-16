@@ -140,14 +140,14 @@
 					<nav id="quiz_container" class="content-container quiz" aria-labelledby="quiz_header">
 						<h2 class="hidden" id="quiz_header">Quiz</h2>
 						<ul class="items-list items-list__horizontal-full display-row align-horizontal__center align-vertical__center">
-							<li class="qlink-item false">
+							<li class="qlink-item">
 								<span class="qlink-text">
 									<em>"El espectro radioeléctrico puede causar cáncer"</em>
 								</span>
 								<span class="qlink-actions">
-									<button class="action qlink-mito">Mito</button>
-									<button class="action qlink-verdad">Verdad</button>
-									<button class="read-more-link">ver más</button>
+									<button class="action qlink-mito true">Mito</button>
+									<button class="action qlink-verdad false">Verdad</button>
+									<button class="read-more-link popup-trigger" data-popup-trigger="modal1">ver más</button>
 								</span>
 							</li>
 							<li class="qlink-item">
@@ -155,34 +155,42 @@
 									<em>Los fantasmas son causados por el espectro radioeléctrico.</em>
 								</span>
 								<span class="qlink-actions">
-									<button class="action qlink-mito">Mito</button>
-									<button class="action qlink-verdad">Verdad</button>
+									<button class="action qlink-mito true">Mito</button>
+									<button class="action qlink-verdad false">Verdad</button>
+									<button class="read-more-link popup-trigger" data-popup-trigger="modal1">ver más</button>
 								</span>
 							</li>
-							<li class="qlink-item true">
+							<li class="qlink-item">
 								<span class="qlink-text">
 									<em>"Entre mas antenas haya en un lugar peor es la cobertura de señal"</em>
 								</span>
 								<span class="qlink-actions">
-									<button class="action qlink-mito">Mito</button>
-									<button class="action qlink-verdad">Verdad</button>
+									<button class="action qlink-mito true">Mito</button>
+									<button class="action qlink-verdad false">Verdad</button>
+									<button class="read-more-link popup-trigger" data-popup-trigger="modal1">ver más</button>
 								</span>
 							</li>
 						</ul>
 					</nav>
-					<div class="quiz-content align-center align-horizontal__center align-vertical__center">
-						<div class="quiz-content-inner">
-							<span class="close">Close</span>
-							<h3>Sobre el exceso de antenas de radio</h3>
-							<img src="pics/quiz-banner.jpg" alt="Quiz imagen principal">
-							<p>En los últimos años, al ya incontable bosque de antenas de radio y TV, se ha sumado con fuerza inusitada la telefonía móvil. En cada llamada nuestro cerebro está absorbiendo continuamente radiación de RF. Es una auténtica novedad para el organismo. Además de las llamadas tenemos también el Internet en los móviles y las instalaciones WiFi´s en cada vez más lugares. A cada segundo estamos actualizando en nuestros smartphones o tabletas nuestro Twitter, Facebook, Gmail..., tenemos ventanas abiertas con webs en el navegador y seguro que bajándonos archivos de Internet. Son muchísimas horas recibiendo un baño masivo de pulsos de RF. </p>
-						</div>
-					</div>
 					<!-- end content -->
 				</div>
 				<!-- end row inner -->
 			</div>
 			<!-- end row -->
+
+			<!-- Modal -->
+			<div class="popup-modal display-column align-center align-horizontal__center align-vertical__center" data-popup-modal="modal1">
+				<button class="btn-close btn-close__white popup-modal__close">Close</button>
+				
+				<div class="quiz-content__modal"> 
+					<div class="quiz-content__modal-inner display-column c-white">
+						<h3 class="title">Sobre el exceso de antenas de radio</h3>
+						<img src="pics/quiz-banner.jpg" alt="Quiz imagen principal">
+						<p>En los últimos años, al ya incontable bosque de antenas de radio y TV, se ha sumado con fuerza inusitada la telefonía móvil. En cada llamada nuestro cerebro está absorbiendo continuamente radiación de RF. Es una auténtica novedad para el organismo. Además de las llamadas tenemos también el Internet en los móviles y las instalaciones WiFi´s en cada vez más lugares. A cada segundo estamos actualizando en nuestros smartphones o tabletas nuestro Twitter, Facebook, Gmail..., tenemos ventanas abiertas con webs en el navegador y seguro que bajándonos archivos de Internet. Son muchísimas horas recibiendo un baño masivo de pulsos de RF. </p>
+					</div>
+				</div>
+			</div>
+			<!-- end Modal -->
 
 			<!-- row -->
 			<div id="quicklinks_row" class="content-row padding-row">
@@ -254,32 +262,8 @@
 			</div>
 		</div>
 	</footer>
-	<script>
-		window.onload = init;
-		var topnavButton = document.getElementById('sitenav_main_mobile_toggle');
-		var topnavDisplay = document.getElementById('sitenav_main');
-
-		function init() {
-			topnavButton.onclick = toggleNav;
-		}
-
-		function toggleNav(){
-			topnavDisplay.classList.toggle("open");
-			topnavButton.classList.toggle("open");
-		}
-		function goBack() {
-		  	window.history.back();
-		}
-	</script>
+	<script src="js/jquery-1.12.4.min.js"></script>	
 	<script src="js/jquery-accessibleMegaMenu.2.js"></script>
-	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			$(function() {
-				$('#sitenav_main').accessibleMegaMenu({
-					openOnMouseover: true
-				});
-			});
-		});
-	</script>
+	<script src="js/main.js"></script>
 </body>
 </html>

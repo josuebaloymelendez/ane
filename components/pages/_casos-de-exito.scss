@@ -26,7 +26,6 @@
 		}
 	}
 }
-
 #news_container {
 	.items-list {
 		padding: 40px 0;
@@ -81,6 +80,25 @@
 		}
 		.item-summary {
 			text-align: left;
+		}
+	}
+}
+.news-content__modal {
+	&-inner {
+		@include width-constrain;
+
+		> * {
+			margin: 10px 0;
+		}
+
+		h2, h3 {
+			font-size: 1.5rem;
+		}
+		p {
+			font-size: 1.2rem;
+		}
+		img {
+			max-width: 100%;
 		}
 	}
 }

@@ -37,10 +37,10 @@
 									<li class="flyout">
 										<ul class="flyout-group">
 											<li class="sub-nav-item">
-												<a href="mitos-y-verdades-del-espectro-radioelectrico.html">¿Qué es el espectro radioeléctrico?</a>
+												<a href="que-es-el-espectro-radioelectrico.html">¿Qué es el espectro radioeléctrico?</a>
 											</li>
 											<li class="sub-nav-item">
-												<a href="mitos-y-verdades-del-espectro.html">Mitos y verdades del espectro</a>
+												<a href="mitos-y-verdades-del-espectro-radioelectrico.html">Mitos y verdades del espectro</a>
 											</li>
 										</ul>
 									</li>
@@ -260,32 +260,8 @@
 			</div>
 		</div>
 	</footer>
-	<script>
-		window.onload = init;
-		var topnavButton = document.getElementById('sitenav_main_mobile_toggle');
-		var topnavDisplay = document.getElementById('sitenav_main');
-
-		function init() {
-			topnavButton.onclick = toggleNav;
-		}
-
-		function toggleNav(){
-			topnavDisplay.classList.toggle("open");
-			topnavButton.classList.toggle("open");
-		}
-		function goBack() {
-		  	window.history.back();
-		}
-	</script>
+	<script src="js/jquery-1.12.4.min.js"></script>	
 	<script src="js/jquery-accessibleMegaMenu.2.js"></script>
-	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			$(function() {
-				$('#sitenav_main').accessibleMegaMenu({
-					openOnMouseover: true
-				});
-			});
-		});
-	</script>
+	<script src="js/main.js"></script>
 </body>
 </html>

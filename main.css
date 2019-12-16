@@ -1924,6 +1924,27 @@ figure {
       -ms-flex: 1;
       flex: 1; } }
 
+.popup-trigger {
+  display: inline-block; }
+
+.popup-modal {
+  position: fixed;
+  z-index: 99999999;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(1, 47, 90, 0.9);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 300ms ease-in-out; }
+  .popup-modal.is--visible {
+    opacity: 1;
+    pointer-events: auto; }
+  .popup-modal__close {
+    cursor: pointer; }
+
 #content_main {
   padding: 40px 0; }
   @media screen and (min-width: 1024px) {
@@ -2183,6 +2204,9 @@ figure {
     @media screen and (min-width: 1024px) {
       .page-espectro #motto_container {
         font-size: 1.73rem; } }
+  @media screen and (min-width: 1350px) {
+    .page-espectro .title-page__icon:after {
+      background-image: url(pics/icon-espectro.png); } }
 
 .page-que-es-el-espectro-radioelectrico {
   background: linear-gradient(to bottom, #3fa7d6 0%, #653f80 80%, #2f1d3c 100%);
@@ -2370,8 +2394,8 @@ figure {
       color: white;
       background: linear-gradient(to bottom, #028d27 0%, #015b19 100%); }
 
-#quiz_container .true .qlink-text:after,
-#quiz_container .false .qlink-text:after {
+#quiz_container .quiz-true .qlink-text:after,
+#quiz_container .quiz-false .qlink-text:after {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2384,7 +2408,6 @@ figure {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
-  content: "Verdadero";
   position: absolute;
   z-index: 3;
   top: 0;
@@ -2395,10 +2418,17 @@ figure {
   font-family: "Myriad Pro Bold", sans-serif;
   font-weight: 700;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: uppercase; }
+
+#quiz_container .quiz-true .read-more-link,
+#quiz_container .quiz-false .read-more-link {
+  top: 0; }
+
+#quiz_container .quiz-true .qlink-text:after {
+  content: "Verdadero";
   background-color: rgba(2, 141, 39, 0.85); }
 
-#quiz_container .false .qlink-text:after {
+#quiz_container .quiz-false .qlink-text:after {
   content: "Falso";
   background-color: rgba(141, 2, 2, 0.85); }
 
@@ -2416,7 +2446,7 @@ figure {
   -webkit-align-items: center;
   align-items: center;
   position: absolute;
-  top: 0;
+  top: 100%;
   left: 0;
   width: 100%;
   height: 100%;
@@ -2428,7 +2458,8 @@ figure {
   font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: top .2s ease-in-out; }
   #quiz_container .read-more-link:hover, #quiz_container .read-more-link:focus {
     color: white;
     background-color: black;
@@ -2455,36 +2486,24 @@ figure {
     flex: none;
     width: 420px; } }
 
-.quiz-content {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  position: fixed;
-  z-index: 999999;
-  top: 0;
-  left: 0;
+.quiz-content__modal-inner {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
-  height: 100%;
-  background-color: rgba(1, 47, 90, 0.9);
-  display: none; }
-  .quiz-content-inner {
-    box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: 1145px; }
-    .quiz-content-inner > * {
-      margin: 10px 0; }
-    .quiz-content-inner h2, .quiz-content-inner h3 {
-      font-size: 1.5rem; }
-    .quiz-content-inner p {
-      font-size: 1.2rem; }
+  max-width: 1145px; }
+  .quiz-content__modal-inner > * {
+    margin: 10px 0; }
+  .quiz-content__modal-inner h2, .quiz-content__modal-inner h3 {
+    font-size: 1.5rem; }
+  .quiz-content__modal-inner p {
+    font-size: 1.2rem; }
+  .quiz-content__modal-inner img {
+    -webkit-box-flex: none;
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none;
+    max-width: 100%; }
 
 .page-casos-de-exito {
   background-color: #0d6288;
@@ -2551,6 +2570,21 @@ figure {
         height: 480px; }
   #news_container .item-summary {
     text-align: left; } }
+
+.news-content__modal-inner {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1145px; }
+  .news-content__modal-inner > * {
+    margin: 10px 0; }
+  .news-content__modal-inner h2, .news-content__modal-inner h3 {
+    font-size: 1.5rem; }
+  .news-content__modal-inner p {
+    font-size: 1.2rem; }
+  .news-content__modal-inner img {
+    max-width: 100%; }
 
 .page-cocrea-el-futuro #search {
   margin: 40px auto 20px; }
@@ -3184,12 +3218,16 @@ figure {
       font-family: "Myriad Pro", sans-serif;
       font-weight: 400; }
   .page-cnabf .content-bar {
-    dpadding: 10px 0;
+    padding: 10px 0;
     width: 100%;
     background-color: white; }
     .page-cnabf .content-bar__inner,
     .page-cnabf .content-bar .items-list {
       width: 100%; }
+    .page-cnabf .content-bar__inner {
+      cursor: pointer; }
+      .page-cnabf .content-bar__inner:hover, .page-cnabf .content-bar__inner:focus {
+        box-shadow: 0 0 10px rgba(1, 47, 90, 0.6); }
     .page-cnabf .content-bar .item {
       display: -webkit-box;
       display: -webkit-flex;

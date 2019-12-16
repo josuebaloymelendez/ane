@@ -31,4 +31,11 @@
 			border-bottom: 1px dashed $c-white;
 		}
 	}
+	@include respond-to($vp-max) {			
+		.title-page__icon {
+			&:after {
+				background-image: url(pics/icon-espectro.png);
+			}
+		}
+	}
 }

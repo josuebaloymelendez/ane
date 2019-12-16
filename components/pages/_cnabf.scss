@@ -243,13 +243,20 @@
 			}
 		}
 		&-bar {
-			dpadding: 10px 0;
+			padding: 10px 0;
 			width: 100%;
 			background-color: $c-white;
 		
 			&__inner, 
 			.items-list {
 				width: 100%;
+			}
+			&__inner {
+				cursor: pointer;
+
+				@include hover {
+					box-shadow: 0 0 10px rgba($primary-color, .6);
+				}
 			}
 			.item {
 				@include flexbox;
